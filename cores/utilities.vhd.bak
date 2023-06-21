@@ -1,0 +1,20 @@
+--==================================================
+--	GIBIC-LEICI  
+--
+-- FIle: utilities.vhd
+-- Author: Federico N. Guerrero
+--	Description: Utilidades para el procesamiento
+-- Date: 15/11/2022
+--================================================== 
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_SIGNED.ALL;
+
+
+package utilities is
+	Type buf_t is array (0 to 26 ) of std_logic_vector (7 downto 0) ;
+end package utilities; 
+package body utilities is
+end package body utilities;

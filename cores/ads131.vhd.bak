@@ -1,0 +1,8 @@
+package ADS131 is
+        CONSTANT SDATAC: std_LOGIC_VECTOR := X"11";
+        
+end package DEFS;
+
+package body DEFS is
+      
+end package body DEFS;

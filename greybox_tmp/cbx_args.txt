@@ -1,0 +1,11 @@
+PIPELINE=8
+Q_PORT_WIDTH=64
+R_PORT_WIDTH=65
+WIDTH=128
+DEVICE_FAMILY="MAX 10"
+aclr
+clk
+ena
+radical
+q
+remainder

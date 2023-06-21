@@ -1,0 +1,59 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdio.h>
+#include "system.h"
+#include "math.h"
+
+
+int main()
+{
+
+  int * muestras_ptr = (int*)DATOS_MUESTREADOS_BASE;
+
+  int * fifo_1_ptr = (int*) FIFO_1_BASE;
+  int * fifo_2_ptr = (int*) FIFO_2_BASE;
+  int * fifo_3_ptr = (int*) FIFO_3_BASE;
+
+  int i=0;
+
+  printf("Datos muestreados: \n");
+  for (i=0;i<512;i++)
+  {
+	  printf("%d, ",*muestras_ptr);
+  }
+
+  printf("\nContenido FIFO 1: \n");
+  for (i=0;i<16;i++)
+  {
+	  printf("%d, ",*fifo_1_ptr);
+  }
+  printf("\nContenido FIFO 2: \n");
+  for (i=0;i<16;i++)
+  {
+	  printf("%d, ",*fifo_2_ptr);
+  }
+  int amplitud_calculada = sqrt( (*fifo_2_ptr / (32*16))*(*fifo_2_ptr / (32*16)) + (*fifo_1_ptr / (32*16))*(*fifo_1_ptr / (32*16))  ) *2/32767;
+
+  printf("Amplitud calculada: %d\n",amplitud_calculada);
+
+  printf("\nContenido FIFO 3: \n");
+  for (i=0;i<16;i++)
+  {
+	  printf("%d, ",*fifo_3_ptr);
+  }
+  return 0;
+}

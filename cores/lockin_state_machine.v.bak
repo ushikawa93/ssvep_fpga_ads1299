@@ -1,0 +1,152 @@
+
+module lockin_state_machine
+
+	#(parameter Q_in = 14,	  
+	  parameter atenuacion_referencia = 0,	// La referencia es de 16 bits pero puede ser de menos
+	  parameter Q_out = 32,
+	  parameter N = 16,
+	  parameter M = 16)
+	
+	( input clk,
+	  input reset_n,
+	
+	  input signed [Q_in-1:0] x,
+	  input x_valid,
+	  
+		
+	  output signed [Q_sumas-1:0] data_out_fase,
+	  output signed [Q_sumas-1:0] data_out_cuad,
+	  output data_out_valid
+
+	);
+
+parameter ref_mean_value = 32767;
+parameter interval = 2048/M; // Para poder cambiar el largo de la secuencia sin tener que leer otro archivo
+
+
+reg [15:0] ref_sen [0:2047];
+reg [15:0] ref_cos [0:2047];
+	
+	initial
+	begin
+		$readmemh("LU_Tables/x2048_16b.mem",ref_sen);
+		$readmemh("LU_Tables/y2048_16b.mem",ref_cos);	
+	end
+
+
+
+reg signed [Q_out-1:0] ref_sen_actual;
+reg signed [Q_out-1:0] ref_cos_actual;
+
+reg [7:0] state;
+localparam idle=0,fetch_old_sample=1,fetch_ref=2,calc_product=3,save_product=4,acum_substract=5,acum_sum=6,update_index=7;
+
+
+reg [Q_out-1:0] buffer_fase [0:M*N-1];
+reg [Q_out-1:0] buffer_cuad [0:M*N-1];
+reg [Q_out-1:0] old_sample_fase,old_sample_cuad;
+reg [Q_out-1:0] prod_fase,prod_cuad;
+reg [Q_out-1:0] acum_fase,acum_cuad;
+
+reg [31:0] index_ref,index_signal;
+reg data_out_reg;
+
+
+
+always @ (posedge clk or negedge reset_n)
+begin
+	
+	if(!reset_n)
+	begin
+		state <= idle;
+		index <= 0;
+		acum_fase <= 0;
+		acum_cuad <= 0;	
+		data_out_valid_reg <= 0;
+	end
+	else
+	begin
+		
+		case state:
+		
+			idle:
+			begin	
+				data_out_valid_reg <= 0;
+				if(x_valid)
+				begin
+					state <= fetch_old_sample;
+				end
+				else
+				begin
+					state <= idle;
+				end
+			end
+	
+			fetch_old_sample:
+			begin
+				old_sample_fase <= buffer_fase[index_signal];
+				old_sample_cuad <= buffer_cuad[index_signal];
+				
+				state <= fetch_ref;
+			end
+			
+			fetch_ref:
+			begin
+				ref_sen_actual <= (ref_sen [index_ref*interval] >> atenuacion_referencia) - (ref_mean_value >> atenuacion_referencia);
+				ref_cos_actual <= (ref_cos [index_ref*interval] >> atenuacion_referencia) - (ref_mean_value >> atenuacion_referencia);
+				
+				state <= calc_product;
+			end
+	
+			calc_product:
+			begin
+				prod_fase <= x * ref_sen_actual;
+				prod_cuad <= x * ref_cos_actual;
+			
+				state <= acum_substract;
+			end
+			
+			save_product:
+			begin
+				buffer_fase[index_signal] = prod_fase;
+				buffer_cuad[index_signal] = prod_cuad;
+			
+			end
+	
+			acum_substract:
+			begin
+				acum_fase = acum_fase - old_sample_fase;
+				acum_cuad = acum_cuad - old_sample_cuad;
+				
+				state <= acum_sum;
+			end
+			
+			acum_sum:
+			begin
+				acum_fase = acum_fase + prod_fase;
+				acum_cuad = acum_cuad + prod_cuad;		
+			
+				state <= update_index;
+			end
+			
+			update_index:
+			begin
+				
+				index_signal = (index_signal == M*N-1)? 0 : index_signal+1 ;
+				index_ref = (index_ref == M-1)? 0 : index_ref+1 ;
+				
+				data_out_valid_reg <= 1;
+				
+				state <= idle;
+			end
+	
+		endcase
+	end
+end	
+
+assign data_out_fase = acum_fase;
+assign data_out_cuad = acum_cuad;
+assign data_out_valid = data_out_valid_reg;
+
+
+endmodule

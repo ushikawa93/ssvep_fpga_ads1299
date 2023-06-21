@@ -1,0 +1,91 @@
+/*
+ * "Hello World" example.
+ *
+ * This example prints 'Hello from Nios II' to the STDOUT stream. It runs on
+ * the Nios II 'standard', 'full_featured', 'fast', and 'low_cost' example
+ * designs. It runs with or without the MicroC/OS-II RTOS and requires a STDOUT
+ * device in your system's hardware.
+ * The memory footprint of this hosted application is ~69 kbytes by default
+ * using the standard reference design.
+ *
+ * For a reduced footprint version of this template, and an explanation of how
+ * to reduce the memory footprint for a given application, see the
+ * "small_hello_world" template.
+ *
+ */
+
+#include <stdio.h>
+#include "system.h"
+#include "math.h"
+
+long long* leer_fifo_64_bit(unsigned int* fifo_down_addr,unsigned int* fifo_up_addr,int N);
+
+int main()
+{
+
+  int M = 64;
+  int N = 8;
+  int amplitud_ref = pow(2,8);
+
+  int * muestras_ptr = (int*)DATOS_MUESTREADOS_BASE;
+
+  int * fifo_1_ptr = (int*) FIFO_1_BASE;
+  int * fifo_2_ptr = (int*) FIFO_2_BASE;
+  int * fifo_3_ptr = (int*) FIFO_3_BASE;
+  int * fifo_4_ptr = (int*) FIFO_4_BASE;
+
+  int i=0;
+
+  printf("Datos muestreados: \n");
+  for (i=0;i<512;i++)
+  {
+	  printf("%d, ",*muestras_ptr);
+  }
+
+  int resultado_fase,resultado_cuad,amplitud;
+
+
+  printf("\n\nResultados fase: \n");
+  for (i=0;i<1024;i++)
+  {
+	  resultado_fase = *fifo_1_ptr;
+	  printf("%d, ",resultado_fase);
+  }
+
+  printf("\n\nResultados cuadratura: \n");
+    for (i=0;i<1024;i++)
+    {
+  	  resultado_cuad = *fifo_2_ptr;
+  	  printf("%d, ",resultado_cuad);
+    }
+
+    printf("\n\nResultados amplitudes: \n");
+       for (i=0;i<1024;i++)
+       {
+     	  amplitud = *fifo_4_ptr;
+     	  printf("%d, ",amplitud);
+       }
+
+  float amplitud_calculada = (sqrt( (resultado_fase/ (M*N))*(resultado_fase / (M*N)) + (resultado_cuad / (M*N))*(resultado_cuad / (M*N))  ) ) *2/amplitud_ref;
+
+  printf("\nAmplitud calculada: %f\n",amplitud_calculada);
+
+  return 0;
+}
+
+
+long long* leer_fifo_64_bit(unsigned int* fifo_down_addr,unsigned int* fifo_up_addr,int N)
+{
+	long long unsigned res_low,res_up;
+
+	long long resultados [N] ;
+	for(int i=0;i<N;i++)
+	{
+		res_low = *(fifo_down_addr);
+		res_up = *(fifo_up_addr);
+		resultados[i] = (res_up << 32) | res_low;
+	}
+	return resultados;
+}
+
+

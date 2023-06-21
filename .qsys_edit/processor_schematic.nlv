@@ -1,0 +1,23 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst processor -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst processor.fifo_1 -pg 1 -lvl 3 -y 30
+preplace inst processor.fifo_2 -pg 1 -lvl 3 -y 230
+preplace inst processor.fifo_3 -pg 1 -lvl 3 -y 410
+preplace inst processor.clk_0 -pg 1 -lvl 1 -y 270
+preplace inst processor.datos_muestreados -pg 1 -lvl 3 -y 510
+preplace inst processor.nios2_qsys_0 -pg 1 -lvl 2 -y 130
+preplace inst processor.onchip_memory2_0 -pg 1 -lvl 3 -y 330
+preplace inst processor.jtag_uart_0 -pg 1 -lvl 3 -y 130
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)processor.datos_muestreados_in,(SLAVE)datos_muestreados.in) 1 0 3 NJ 540 NJ 540 NJ
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)fifo_3.in,(SLAVE)processor.fifo_3_in) 1 0 3 NJ 360 NJ 360 NJ
+preplace netloc INTERCONNECT<net_container>processor</net_container>(MASTER)nios2_qsys_0.data_master,(SLAVE)onchip_memory2_0.s1,(SLAVE)nios2_qsys_0.jtag_debug_module,(SLAVE)fifo_3.out,(SLAVE)fifo_1.out,(SLAVE)fifo_2.out,(SLAVE)jtag_uart_0.avalon_jtag_slave,(SLAVE)datos_muestreados.out,(MASTER)nios2_qsys_0.instruction_master) 1 1 2 390 560 660
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)clk_0.clk_in,(SLAVE)processor.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)processor.reset,(SLAVE)clk_0.clk_in_reset) 1 0 1 NJ
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)processor.fifo_1_in,(SLAVE)fifo_1.in) 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc POINT_TO_POINT<net_container>processor</net_container>(SLAVE)jtag_uart_0.irq,(MASTER)nios2_qsys_0.d_irq) 1 2 1 680
+preplace netloc FAN_OUT<net_container>processor</net_container>(MASTER)clk_0.clk_reset,(SLAVE)onchip_memory2_0.reset1,(SLAVE)fifo_3.reset_in,(SLAVE)nios2_qsys_0.reset_n,(SLAVE)datos_muestreados.reset_in,(SLAVE)jtag_uart_0.reset,(SLAVE)fifo_1.reset_in,(SLAVE)fifo_2.reset_in) 1 1 2 370 580 720
+preplace netloc FAN_OUT<net_container>processor</net_container>(SLAVE)nios2_qsys_0.clk,(SLAVE)fifo_1.clk_in,(SLAVE)fifo_3.clk_in,(SLAVE)jtag_uart_0.clk,(SLAVE)onchip_memory2_0.clk1,(MASTER)clk_0.clk,(SLAVE)datos_muestreados.clk_in,(SLAVE)fifo_2.clk_in) 1 1 2 350 380 700
+preplace netloc EXPORT<net_container>processor</net_container>(SLAVE)processor.fifo_2_in,(SLAVE)fifo_2.in) 1 0 3 NJ 340 NJ 340 NJ
+levelinfo -pg 1 0 140 920
+levelinfo -hier processor 150 180 420 770 910

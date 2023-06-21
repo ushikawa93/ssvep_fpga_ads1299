@@ -1,0 +1,166 @@
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.std_logic_unsigned.all;
+use IEEE.numeric_std.all;
+
+entity fsm_txpc is
+generic(
+		buf_depth: in positive
+);
+port(
+		clk_in: in std_logic;
+		rst : in std_logic;
+		data_in: in std_logic_vector(7 downto 0);
+		data_en: in std_logic;
+		pin_tx: out std_logic;
+		pin_rx: in std_logic
+);
+end entity;
+
+architecture rtl of fsm_txpc is
+
+	-- Señales para UART
+	signal dout: std_logic_vector(7 downto 0);
+	signal dtx: std_logic_vector(7 downto 0);
+	signal uart_txbusy: std_logic;
+	signal uart_rxbusy: std_logic;
+	signal uart_txenable: std_logic;
+
+	-- Maquina de estados
+	type state_type_txpc is (	TXPC_IDLE, TXPC_DELAY, TXPC_DELAY_IN_PROGRESS,
+										TXPC_TRANSMIT_START, TXPC_TRANSMIT_CLRFLAG, TXPC_TRANSMIT_END, 
+										TXPC_BUFFER_SEND_START, TXPC_BUFFER_SENDING, TXPC_BUFFER_SEND_END, 
+										TXPC_BUFFER_SENDING_DATA_REQ,
+										TXPC_E1, TXPC_E2, TXPC_E3, TXPC_E4, TXPC_E5, TXPCEc6
+										);
+	signal state_txpc   : state_type_txpc;
+	signal txpc_next_state   : state_type_txpc;
+	signal txpc_return_delay   : state_type_txpc;
+	signal txpc_return_transmit: state_type_txpc;
+	
+	signal txpc_delay_counter: integer:=0;
+	signal txpc_delay_count: integer:=0;
+	
+	signal txpc_byte_to_send : std_logic_vector(7 downto 0);
+	signal txpc_byte_counter : integer;
+	signal txpc_byte_count	 : integer;
+	
+	signal byte_from_buf: std_logic_vector(7 downto 0);
+	signal data_req : std_logic;
+	signal signal_tx_all : std_logic;
+	
+begin
+
+	--=============================================
+	-- Instanciación de buffer
+	--=============================================
+	buf: entity work.bpp(rtl)
+	generic map(
+		N => 8,
+		buf_depth => 100)
+	port map(
+		clk_in 			=> clk_in,
+		rst				=> rst,
+		data_in 			=> data_in,
+		data_in_en 		=> data_en,
+		data_out_req 	=> data_req,
+		data_out  		=> byte_from_buf,
+		buf_available 	=> signal_tx_all
+);
+
+
+	--=============================================
+	-- Instanciación de módulo TX/RX UART
+	--=============================================
+	uart1: entity work.uart(logic)
+	GENERIC map(100_000_000, 	-- Clock de entrada
+					921_600, 		-- Baud rate
+					4, 				-- Oversampling
+					8, 				-- Ancho de palabra
+					1, 				-- Bits de stop
+					'0'				-- Chequeo de paridad
+					)        
+	PORT map( 	clk_in, -- Señal de clock
+					rst, 			-- Reset (configurado manual)
+					uart_txenable, --initiate transmission
+					dtx, 				--data to transmit
+					pin_rx, --ARDUINO_IO(1), --receive pin
+					uart_rxbusy,   --data reception in progress
+					open, 			--start, parity, or stop bit error detected
+					dout, 			--data received
+					uart_txbusy, 	--transmission in progress
+					pin_tx--ARDUINO_IO(0)	--transmit pin
+					);
+
+	--=============================================
+	-- Máquina de estados de control
+	--=============================================
+
+	fsm_txpc_init: process (clk_in)
+	begin
+		if rst = '1' then 
+			state_txpc <= TXPC_IDLE;	
+		else 
+			if (rising_edge(clk_in)) then
+				case state_txpc is
+				
+					when TXPC_DELAY =>
+						txpc_delay_counter <= 0;
+						state_txpc <= TXPC_DELAY_IN_PROGRESS;
+					when TXPC_DELAY_IN_PROGRESS =>
+						if txpc_delay_counter = txpc_delay_count then 
+							state_txpc <= txpc_return_delay;
+						else
+							txpc_delay_counter <= txpc_delay_counter + 10;
+						end if;		
+						
+					-- Transmision para escritura de datos
+					when TXPC_TRANSMIT_START=>
+							dtx <= txpc_byte_to_send;
+							uart_txenable <= '1';
+							state_txpc <= TXPC_TRANSMIT_CLRFLAG;							
+					when TXPC_TRANSMIT_CLRFLAG=>
+							uart_txenable <= '0';
+							if uart_txbusy = '0' then
+								state_txpc <= TXPC_TRANSMIT_END;
+							end if;
+					when TXPC_TRANSMIT_END=>
+							txpc_return_delay <= txpc_return_transmit;	
+							txpc_delay_count <= 100;
+							state_txpc <= TXPC_DELAY;							
+					
+					-- Inicio 
+					when TXPC_IDLE =>
+							if signal_tx_all = '1' then
+								state_txpc <= TXPC_BUFFER_SEND_START;
+							end if;
+					
+					when TXPC_BUFFER_SEND_START =>
+							txpc_byte_counter <= 0;
+							state_txpc <= TXPC_BUFFER_SENDING_DATA_REQ;
+					when TXPC_BUFFER_SENDING_DATA_REQ =>
+							data_req <= '1';
+							state_txpc <= TXPC_BUFFER_SENDING;
+					when TXPC_BUFFER_SENDING =>
+							if txpc_byte_counter = 100 then 
+								state_txpc <= TXPC_BUFFER_SEND_END;
+							else
+								txpc_byte_counter <= txpc_byte_counter+1;
+								txpc_byte_to_send <= byte_from_buf;
+								data_req <= '0';
+								txpc_return_transmit <= TXPC_BUFFER_SENDING_DATA_REQ;
+								state_txpc <= TXPC_TRANSMIT_START;
+							end if;
+					when TXPC_BUFFER_SEND_END =>
+							state_txpc <= TXPC_IDLE;
+							
+					when others =>
+							state_txpc <= TXPC_IDLE;
+				end case;
+			end if;
+		end if;
+	end process;
+	
+end rtl;
+	

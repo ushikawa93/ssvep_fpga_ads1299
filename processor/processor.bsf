@@ -1,0 +1,194 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 416 504)
+	(text "processor" (rect 179 -1 219 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 488 20 500)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 46 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 176 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "datos_muestreados_in_valid" (rect 0 0 114 12)(font "Arial" (font_size 8)))
+		(text "datos_muestreados_in_valid" (rect 4 101 160 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 176 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "datos_muestreados_in_data[31..0]" (rect 0 0 136 12)(font "Arial" (font_size 8)))
+		(text "datos_muestreados_in_data[31..0]" (rect 4 117 196 128)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 176 128)(line_width 3))
+	)
+	(port
+		(pt 0 184)
+		(input)
+		(text "fifo_1_in_valid" (rect 0 0 57 12)(font "Arial" (font_size 8)))
+		(text "fifo_1_in_valid" (rect 4 173 94 184)(font "Arial" (font_size 8)))
+		(line (pt 0 184)(pt 176 184)(line_width 1))
+	)
+	(port
+		(pt 0 200)
+		(input)
+		(text "fifo_1_in_data[31..0]" (rect 0 0 80 12)(font "Arial" (font_size 8)))
+		(text "fifo_1_in_data[31..0]" (rect 4 189 130 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 176 200)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(input)
+		(text "fifo_2_in_valid" (rect 0 0 59 12)(font "Arial" (font_size 8)))
+		(text "fifo_2_in_valid" (rect 4 245 94 256)(font "Arial" (font_size 8)))
+		(line (pt 0 256)(pt 176 256)(line_width 1))
+	)
+	(port
+		(pt 0 272)
+		(input)
+		(text "fifo_2_in_data[31..0]" (rect 0 0 81 12)(font "Arial" (font_size 8)))
+		(text "fifo_2_in_data[31..0]" (rect 4 261 130 272)(font "Arial" (font_size 8)))
+		(line (pt 0 272)(pt 176 272)(line_width 3))
+	)
+	(port
+		(pt 0 328)
+		(input)
+		(text "fifo_3_in_valid" (rect 0 0 59 12)(font "Arial" (font_size 8)))
+		(text "fifo_3_in_valid" (rect 4 317 94 328)(font "Arial" (font_size 8)))
+		(line (pt 0 328)(pt 176 328)(line_width 1))
+	)
+	(port
+		(pt 0 344)
+		(input)
+		(text "fifo_3_in_data[31..0]" (rect 0 0 81 12)(font "Arial" (font_size 8)))
+		(text "fifo_3_in_data[31..0]" (rect 4 333 130 344)(font "Arial" (font_size 8)))
+		(line (pt 0 344)(pt 176 344)(line_width 3))
+	)
+	(port
+		(pt 0 400)
+		(input)
+		(text "fifo_4_in_valid" (rect 0 0 60 12)(font "Arial" (font_size 8)))
+		(text "fifo_4_in_valid" (rect 4 389 94 400)(font "Arial" (font_size 8)))
+		(line (pt 0 400)(pt 176 400)(line_width 1))
+	)
+	(port
+		(pt 0 416)
+		(input)
+		(text "fifo_4_in_data[31..0]" (rect 0 0 82 12)(font "Arial" (font_size 8)))
+		(text "fifo_4_in_data[31..0]" (rect 4 405 130 416)(font "Arial" (font_size 8)))
+		(line (pt 0 416)(pt 176 416)(line_width 3))
+	)
+	(port
+		(pt 0 472)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 461 82 472)(font "Arial" (font_size 8)))
+		(line (pt 0 472)(pt 176 472)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(output)
+		(text "datos_muestreados_in_ready" (rect 0 0 120 12)(font "Arial" (font_size 8)))
+		(text "datos_muestreados_in_ready" (rect 4 133 160 144)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 176 144)(line_width 1))
+	)
+	(port
+		(pt 0 216)
+		(output)
+		(text "fifo_1_in_ready" (rect 0 0 63 12)(font "Arial" (font_size 8)))
+		(text "fifo_1_in_ready" (rect 4 205 94 216)(font "Arial" (font_size 8)))
+		(line (pt 0 216)(pt 176 216)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(output)
+		(text "fifo_2_in_ready" (rect 0 0 64 12)(font "Arial" (font_size 8)))
+		(text "fifo_2_in_ready" (rect 4 277 94 288)(font "Arial" (font_size 8)))
+		(line (pt 0 288)(pt 176 288)(line_width 1))
+	)
+	(port
+		(pt 0 360)
+		(output)
+		(text "fifo_3_in_ready" (rect 0 0 64 12)(font "Arial" (font_size 8)))
+		(text "fifo_3_in_ready" (rect 4 349 94 360)(font "Arial" (font_size 8)))
+		(line (pt 0 360)(pt 176 360)(line_width 1))
+	)
+	(port
+		(pt 0 432)
+		(output)
+		(text "fifo_4_in_ready" (rect 0 0 66 12)(font "Arial" (font_size 8)))
+		(text "fifo_4_in_ready" (rect 4 421 94 432)(font "Arial" (font_size 8)))
+		(line (pt 0 432)(pt 176 432)(line_width 1))
+	)
+	(drawing
+		(text "clk" (rect 161 43 340 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 181 67 380 144)(font "Arial" (color 0 0 0)))
+		(text "datos_muestreados_in" (rect 43 83 206 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 181 107 392 224)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 181 123 386 256)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 139 392 288)(font "Arial" (color 0 0 0)))
+		(text "fifo_1_in" (rect 126 155 306 323)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 181 179 392 368)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 181 195 386 400)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 211 392 432)(font "Arial" (color 0 0 0)))
+		(text "fifo_2_in" (rect 124 227 302 467)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 181 251 392 512)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 181 267 386 544)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 283 392 576)(font "Arial" (color 0 0 0)))
+		(text "fifo_3_in" (rect 124 299 302 611)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 181 323 392 656)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 181 339 386 688)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 355 392 720)(font "Arial" (color 0 0 0)))
+		(text "fifo_4_in" (rect 124 371 302 755)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "valid" (rect 181 395 392 800)(font "Arial" (color 0 0 0)))
+		(text "data" (rect 181 411 386 832)(font "Arial" (color 0 0 0)))
+		(text "ready" (rect 181 427 392 864)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 147 443 324 899)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 181 467 404 944)(font "Arial" (color 0 0 0)))
+		(text " processor " (rect 370 488 806 986)(font "Arial" ))
+		(line (pt 176 32)(pt 240 32)(line_width 1))
+		(line (pt 240 32)(pt 240 488)(line_width 1))
+		(line (pt 176 488)(pt 240 488)(line_width 1))
+		(line (pt 176 32)(pt 176 488)(line_width 1))
+		(line (pt 177 52)(pt 177 76)(line_width 1))
+		(line (pt 178 52)(pt 178 76)(line_width 1))
+		(line (pt 177 92)(pt 177 148)(line_width 1))
+		(line (pt 178 92)(pt 178 148)(line_width 1))
+		(line (pt 177 164)(pt 177 220)(line_width 1))
+		(line (pt 178 164)(pt 178 220)(line_width 1))
+		(line (pt 177 236)(pt 177 292)(line_width 1))
+		(line (pt 178 236)(pt 178 292)(line_width 1))
+		(line (pt 177 308)(pt 177 364)(line_width 1))
+		(line (pt 178 308)(pt 178 364)(line_width 1))
+		(line (pt 177 380)(pt 177 436)(line_width 1))
+		(line (pt 178 380)(pt 178 436)(line_width 1))
+		(line (pt 177 452)(pt 177 476)(line_width 1))
+		(line (pt 178 452)(pt 178 476)(line_width 1))
+		(line (pt 0 0)(pt 416 0)(line_width 1))
+		(line (pt 416 0)(pt 416 504)(line_width 1))
+		(line (pt 0 504)(pt 416 504)(line_width 1))
+		(line (pt 0 0)(pt 0 504)(line_width 1))
+	)
+)

@@ -1,0 +1,52 @@
+--==================================================
+--	GIBIC-LEICI  
+--
+-- FIle: parallel_sum.vhd
+-- Author: Federico N. Guerrero
+--	Description: Realiza el procesamiento
+-- Date: 15/11/2022
+--================================================== 
+
+library IEEE;
+use IEEE.std_logic_1164.all;
+use IEEE.numeric_std.all;
+use IEEE.STD_LOGIC_SIGNED.ALL;
+
+entity parallel_sum is
+	port(
+		rst		: 	in std_logic; --Reset signal
+		clk_in	:	in std_logic; --Base clock input
+		buf		:  in array (23 downto 0) of std_logic_vector(7 downto 0);
+		samp_out	: 	out std_logic_vector(31 downto 0);
+	);
+end entity;
+
+architecture rtl of parallel_sum is
+	signal counter   : std_logic_vector(31 downto 0);
+	signal count_val : std_logic_vector(31 downto 0);
+	signal gen_clk_out : std_logic;
+begin 
+
+	divisor_clock: process(clk_in)
+   begin
+		if rst = '1' then 
+			samp_out <= X"00000000";			
+		else 
+			if rising_edge(clk_in) then		  
+				
+				samp_out <= buf(0 downto 2) 		-- Canal 1
+								+ buf(3 downto 5) 	-- Canal 2
+								+ buf(6 downto 8) 	-- Canal 3
+								+ buf(9 downto 11) 	-- Canal 4
+								+ buf(12 downto 14) 	-- Canal 5
+								+ buf(15 downto 17) 	-- Canal 6
+								+ buf(18 downto 20) 	-- Canal 7
+								+ buf(21 downto 23) 	-- Canal 8
+				
+			end if;
+		
+		end if;
+   end process;
+
+
+end rtl;

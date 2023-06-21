@@ -1,0 +1,52 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity test_uart_m10 is
+
+	port 
+	(
+		data_clk: 	in std_logic;
+		data:			in std_logic;
+		dout	:		out std_logic_vector(7 downto 0)
+	);
+
+end entity;
+
+architecture rtl of test_uart_m10 is
+	component sipo_register
+		generic
+		(
+			bits : integer := 8  -- Parallel Data Bit Width
+		);
+		port 
+		(
+			-- Input Ports
+			reset       		: in std_logic;
+			serial_in        	: in std_logic;
+			clk_in	        	: in std_logic;
+			-- Output Ports
+			parallel_out	   : out std_logic_vector((bits-1) downto 0)
+		);
+
+	end component;
+	
+	signal rst: std_logic; 
+begin
+
+	sipo1 : sipo_register
+	generic map
+	(
+		bits => 8
+	)
+	port map 
+	(
+		reset => rst,
+		serial_in => data,
+		clk_in => data_clk,
+		parallel_out => dout 
+	);
+
+	
+
+end rtl;
+

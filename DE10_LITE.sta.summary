@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -85.854
+TNS   : -26814.498
+
+Type  : Slow 1200mV 85C Model Hold 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.282
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.149
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.016
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.570
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.802
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -77.165
+TNS   : -23675.396
+
+Type  : Slow 1200mV 0C Model Hold 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.287
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.713
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.684
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.589
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.736
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -29.387
+TNS   : -8436.962
+
+Type  : Fast 1200mV 0C Model Hold 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.122
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 7.044
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.922
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'master_clock_gen|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 4.711
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Slack : 9.524
+TNS   : 0.000
+
+------------------------------------------------------------

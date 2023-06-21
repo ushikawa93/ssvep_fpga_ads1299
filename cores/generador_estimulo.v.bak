@@ -1,0 +1,13 @@
+
+module generador_estimulo(
+	
+	input clk,
+	input data_valid
+
+
+);
+
+
+
+
+endmodule 

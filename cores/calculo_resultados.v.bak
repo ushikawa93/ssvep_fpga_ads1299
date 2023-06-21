@@ -1,0 +1,80 @@
+
+module calculo_resultados
+#(
+		parameter Q_in = 64,
+		parameter Q_out = 64,
+	)
+
+(
+
+	input clk,
+	input reset_n,
+	
+	input [Q_in-1:0] data_in_fase,
+	input [Q_in-1:0] data_in_cuad,
+	input 			  data_in_valid,
+	
+	output [Q_out-1:0] amplitud_pre_sqrt,
+	output [Q_out-1:0] amplitud_final,
+
+
+);
+
+reg [Q_out-1:0] amplitud_pre_sqrt_reg;
+
+reg [Q_out-1:0] amplitud_pre_sqrt_slow_reg;
+
+reg [Q_out-1] amplitud_final_reg;
+
+reg [31:0] counter;
+
+always @ (posedge clk)
+begin
+	
+	if(!reset_n)
+	begin
+		amplitud_pre_sqrt_reg <= 0;
+	end
+
+	else if(data_in_valid)
+	begin		
+		amplitud_pre_sqrt_reg <= data_in_fase * data_in_fase + data_in_cuad * data_in_cuad ;	
+	end
+end
+
+localparam counter_reset_value = 50000000; // Para 1 segundo de actualizacion de la raiz cuadrada
+
+always @ (posedge clk)
+begin
+
+	if(!reset_n)
+	begin
+		counter <= 0;
+	end
+	
+	else
+	begin	
+		counter <= counter + 1;
+		if (counter == counter_reset_value)
+		begin			
+			amplitud_pre_sqrt_slow_reg <= amplitud_pre_sqrt_reg;
+			counter <= 0;
+		end	
+	end
+	
+end
+
+
+
+sqrt raiz_cuadrada (
+	.aclr(reset_n),
+	.clk(clk),
+	.ena(1),
+	.radical(amplitud_pre_sqrt_slow_reg),
+	.q(amplitud_final),
+	.remainder());
+
+
+assign amplitud_pre_sqrt = amplitud_pre_sqrt_reg;
+
+endmodule

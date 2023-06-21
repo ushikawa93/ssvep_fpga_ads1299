@@ -1,0 +1,68 @@
+
+module lockin_wrapper
+
+	#(parameter Q_in = 32,
+     parameter N = 4,
+	  parameter ref_mean_value = 32767,
+	  parameter Q_productos = 32,
+	  parameter Q_sumas = 32)
+	
+	( input clk,
+	  input reset_n,
+	
+	  input [Q_in-1:0] x,
+	  input x_valid,
+	  input [31:0] M,
+	
+	  output [31:0] amplitud_salida 
+
+);
+
+
+wire data_li_valid;
+wire [31:0] data_li_fase;
+wire [31:0] data_li_cuad;
+wire [31:0] amplitud_li;
+
+
+lockin lockin_inst(
+
+	.clk(clk),
+	.reset_n(reset_n),
+	
+	.x(x),
+	.x_valid(x_valid),
+	
+	.data_out_fase(data_li_fase),
+	.data_out_cuad(data_li_cuad),
+	.data_out_valid(data_li_valid)
+);
+
+defparam lockin_inst.Q_in = Q_in;
+defparam lockin_inst.N = N;
+defparam lockin_inst.ref_mean_value = ref_mean_value;
+defparam lockin_inst.Q_productos = Q_productos;
+defparam lockin_inst.Q_sumas = Q_sumas;
+
+
+
+// Calcula aproximadamente la amplitud del resultado:
+wire amplitud_li_done;
+
+wire [63:0] fase_li =  {32'b0 , data_li_fase};
+wire [63:0] cuad_li =  {32'b0 , data_li_cuad};
+
+lockin_amplitude amplitud_li_inst(
+
+   .Clock(clk),  //Clock
+   .reset_n(reset_n),  //Asynchronous active high reset.      
+   .res_fase(fase_li), 
+	.res_cuad(cuad_li),
+   .done(amplitud_li_done),  
+   .amplitud(amplitud_li) 
+);
+
+assign amplirud_salida = amplitud_li;
+
+endmodule 
+
