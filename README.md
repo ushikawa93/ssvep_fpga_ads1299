@@ -1,15 +1,15 @@
 
-## SSVEP con FPGA y ADS1299
+# SSVEP con FPGA y ADS1299
 
 Adquisidor de señales de EEG con deteccion de SSVEPs implementado en un ads1299 y una FPGA Max10. 
 
 
-# Configuración de la operacion con botones y pulsadores:
+## Configuración de la operacion con botones y pulsadores:
 
 COMPLETAR (La hoja que tengo esta impresa supongo que está tipeado en algun lado)
 
 
-# Conexion con ADS1299 
+## Conexion con ADS1299 
 
 Aparte de las conexiones de tierra y alimentación deben conectarse:
 
@@ -23,11 +23,11 @@ Aparte de las conexiones de tierra y alimentación deben conectarse:
 	GPIO(23) (Y8)	-> ADS_SCLK
 	GPIO(25) (Y7)	-> ADS_MISO
 
-#Conexion con Bluepill para transmision de datos
+## Conexion con Bluepill para transmision de datos
 
 COMPLETAR 
 
-# Bitstreams para hacer andar la FPGA con SSVEPS 
+## Bitstreams para hacer andar la FPGA con SSVEPS 
 
 eeg_ssvep_1 -> Mide la señal de entrada al ads1299 en dos modos, canal 1 directo o promediando los 8 canales, con 1 kHz de frecuencia de muestreo
 			   Esta señal la pasa por un lockin a tres frecuencias distintas ->	16 Hz, 12 Hz y 20 Hz
