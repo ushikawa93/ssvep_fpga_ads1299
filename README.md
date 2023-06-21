@@ -30,8 +30,13 @@ COMPLETAR
 ## Bitstreams para hacer andar la FPGA con SSVEPS 
 
 eeg_ssvep_1: -> 
+
 	* Mide la señal de entrada al ads1299 en dos modos, canal 1 directo o promediando los 8 canales, con 1 kHz de frecuencia de muestreo
+	
 	* Esta señal la pasa por un lockin a tres frecuencias distintas ->	16 Hz, 12 Hz y 20 Hz
+	
 	* La señal medida y los resultados de la amplitud del lockin los envía a la PC a través de un puerto serie
+	
 	* En total se envían 17 bytes -> 4 de señal cruda, 4 del lockin a 16, 4 del lockin a 12 y 4 del lockin a 20 y un byte de separacion 0x0F (en ese orden)
+	
 	* La FPGA tambien genera estimulos a las frecuencias de interés, sincronizados con el muestreo disponibles en pines: GPIO(31) -> 16Hz | GPIO(33) -> 12 Hz | GPIO(35) -> 20 Hz 
