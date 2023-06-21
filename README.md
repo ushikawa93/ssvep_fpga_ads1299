@@ -29,7 +29,7 @@ COMPLETAR
 
 ## Bitstreams para hacer andar la FPGA con SSVEPS 
 
-eeg_ssvep_1: -> 
+eeg_ssvep_1: 
 
 	* Mide la señal de entrada al ads1299 en dos modos, canal 1 directo o promediando los 8 canales, con 1 kHz de frecuencia de muestreo
 	
