@@ -35,8 +35,15 @@ eeg_ssvep_1:
 	
 	* Esta señal la pasa por un lockin a tres frecuencias distintas ->	16 Hz, 12 Hz y 20 Hz
 	
+	* Este lockin esta configurado con filtro de media movil de 8 ciclos de la señal
+	
 	* La señal medida y los resultados de la amplitud del lockin los envía a la PC a través de un puerto serie
 	
 	* En total se envían 17 bytes -> 4 de señal cruda, 4 del lockin a 16, 4 del lockin a 12 y 4 del lockin a 20 y un byte de separacion 0x0F (en ese orden)
 	
 	* La FPGA tambien genera estimulos a las frecuencias de interés, sincronizados con el muestreo disponibles en pines: GPIO(31) -> 16Hz | GPIO(33) -> 12 Hz | GPIO(35) -> 20 Hz 
+	
+eeg_ssvep_1: 
+	
+	* Igual que eeg_ssvep_1, solo que aparte del filtro de media movil se pasa la señal por un IIR pasabajos. Esto debería ayudar a filtrar más el ruido
+	

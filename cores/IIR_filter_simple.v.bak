@@ -1,0 +1,83 @@
+
+module IIR_filter_simple
+
+#( parameter Q_in = 64)
+
+(
+
+	// Entradas de control
+	input clock,
+	input reset,
+	input enable,
+		
+	// Interfaz avalon streaming de entrada
+	input data_valid,
+	input signed [Q_in-1:0] data,	
+	
+	// Interfaz avalon streaming de salida
+	output signed [Q_in-1:0] data_out,
+	output data_out_valid
+
+);
+
+// Parametros de un filtro IIR para wn = 0.00125, cuantizados a 16 bits
+// Sino pueden ingresarse mientras enable no este en 1:
+parameter A1 = 65536; 
+	parameter log2A1 = 16;
+	
+parameter A2 = -65279;
+parameter B1 = 128;
+parameter B2 = 128;
+
+
+// Como trunco 16 bits para la division tengo que agregar algunos bits para
+// no tener errores despues... antes de salir le saco esos bits...
+parameter Q_extra = 16;
+
+
+// Estados de la ecuacion en diferencias
+wire signed [Q_in+16-1:0] data_in; 
+	assign data_in = (data <<< Q_extra);	// Aca agrego esa cuantizacion que decia
+
+reg signed [Q_in+16-1:0] x_n;
+reg signed [Q_in+16-1:0] x_n_1;
+reg signed [Q_in+16-1:0] y_n;
+
+reg signed [Q_in+16-1:0] MB1,MB2,MA2; 
+
+
+always @ (posedge clock or negedge reset)
+begin
+
+	if(!reset)
+	begin	
+		x_n <= 0;
+		x_n_1 <= 0;
+		y_n <= 0;		
+		
+		MB1 <= 0;
+		MB2 <= 0;
+		MA2 <= 0;
+
+	end
+	else if(data_valid)
+	begin
+		x_n   <= data_in;	
+		x_n_1 <= x_n;
+		
+		
+		MB1   <= x_n * B1;						
+		MB2   <= x_n_1 * B2;
+			
+		y_n <= ( MB1 + MB2 - MA2 ) >>> log2A1;
+	
+	end
+	else
+		MA2	<= y_n * A2; 
+end
+
+// Salidas:
+assign data_out = y_n >>> Q_extra;
+assign data_out_valid = data_valid ;
+
+endmodule

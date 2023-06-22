@@ -135,7 +135,7 @@ defparam lockin_inst.N = N_lockin;
 /////////////////////////////////////////////////
 // ==== Filtros IIR extra (porque puedo)  =========
 /////////////////////////////////////////////////
-/*
+
 // Salidas del lockin en fase y cuadratura con su data_valid
 wire data_iir_fase_valid,data_iir_cuad_valid,data_iir_valid;
 wire signed [Q_calculos_internos-1:0] data_iir_fase;
@@ -144,13 +144,12 @@ wire signed [Q_calculos_internos-1:0] data_iir_cuad;
 assign data_iir_valid = data_iir_fase_valid && data_iir_cuad_valid;
 
 
-IIR_filter iir_filter_fase(
+IIR_filter_simple iir_filter_fase
+(
 
 	// Entradas de control
 	.clock(clk),
 	.reset(reset_n),
-	.enable(1),
-	.bypass(0),
 		
 	// Interfaz avalon streaming de entrada
 	.data_valid(data_li_valid),
@@ -158,22 +157,18 @@ IIR_filter iir_filter_fase(
 	
 	// Interfaz avalon streaming de salida
 	.data_out(data_iir_fase),
-	.data_out_valid(data_iir_fase_valid),
-	
+	.data_out_valid(data_iir_fase_valid)
+
 );
 
-defparam iir_filter_fase.enable_pipeline = 1;
-defparam iir_filter_fase.full_input = 0;
-defparam iir_filter_fase.coef_manuales = 0;
+defparam iir_filter_fase.Q_in = Q_calculos_internos;
 
-
-IIR_filter iir_filter_cuad(
+IIR_filter_simple iir_filter_cuad
+(
 
 	// Entradas de control
 	.clock(clk),
 	.reset(reset_n),
-	.enable(1),
-	.bypass(0),
 		
 	// Interfaz avalon streaming de entrada
 	.data_valid(data_li_valid),
@@ -181,15 +176,12 @@ IIR_filter iir_filter_cuad(
 	
 	// Interfaz avalon streaming de salida
 	.data_out(data_iir_cuad),
-	.data_out_valid(data_iir_cuad_valid),
-	
+	.data_out_valid(data_iir_cuad_valid)
+
 );
 
-defparam iir_filter_cuad.enable_pipeline = 1;
-defparam iir_filter_cuad.full_input = 0;
-defparam iir_filter_cuad.coef_manuales = 0;
+defparam iir_filter_cuad.Q_in = Q_calculos_internos;
 
-*/
 /////////////////////////////////////////////////
 // ========== Calculo de resultados  =============
 /////////////////////////////////////////////////
@@ -205,9 +197,9 @@ calculo_resultados resultados_inst
 	.clk(clk),
 	.reset_n(reset_n),
 	
-	.data_in_fase(data_li_fase),
-	.data_in_cuad(data_li_cuad),
-	.data_in_valid(data_li_valid),
+	.data_in_fase(data_iir_fase),
+	.data_in_cuad(data_iir_cuad),
+	.data_in_valid(data_iir_valid),
 	
 	.amplitud_final_lenta(amplitud_final_lenta),
 	.amplitud_final(amplitud_final)
