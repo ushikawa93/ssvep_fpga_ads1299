@@ -1,10 +1,10 @@
 --alt_u_div DEVICE_FAMILY="MAX 10" LPM_PIPELINE=0 MAXIMIZE_SPEED=5 SKIP_BITS=0 WIDTH_D=17 WIDTH_N=32 WIDTH_Q=32 WIDTH_R=17 denominator numerator quotient remainder
---VERSION_BEGIN 17.1 cbx_cycloneii 2017:10:25:18:06:53:SJ cbx_lpm_abs 2017:10:25:18:06:53:SJ cbx_lpm_add_sub 2017:10:25:18:06:53:SJ cbx_lpm_divide 2017:10:25:18:06:53:SJ cbx_mgl 2017:10:25:18:08:29:SJ cbx_nadder 2017:10:25:18:06:53:SJ cbx_stratix 2017:10:25:18:06:53:SJ cbx_stratixii 2017:10:25:18:06:53:SJ cbx_util_mgl 2017:10:25:18:06:53:SJ  VERSION_END
+--VERSION_BEGIN 22.1 cbx_cycloneii 2022:10:25:15:36:38:SC cbx_lpm_abs 2022:10:25:15:36:36:SC cbx_lpm_add_sub 2022:10:25:15:36:38:SC cbx_lpm_divide 2022:10:25:15:36:38:SC cbx_mgl 2022:10:25:15:36:55:SC cbx_nadder 2022:10:25:15:36:38:SC cbx_stratix 2022:10:25:15:36:38:SC cbx_stratixii 2022:10:25:15:36:38:SC cbx_util_mgl 2022:10:25:15:36:38:SC  VERSION_END
 
 
--- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Copyright (C) 2022  Intel Corporation. All rights reserved.
 --  Your use of Intel Corporation's design tools, logic functions 
---  and other software and tools, and its AMPP partner logic 
+--  and other software and tools, and any partner logic 
 --  functions, and any output files from any of the foregoing 
 --  (including device programming or simulation files), and any 
 --  associated documentation or information are expressly subject 
@@ -14,15 +14,46 @@
 --  agreement, including, without limitation, that your use is for
 --  the sole purpose of programming logic devices manufactured by
 --  Intel and sold by Intel or its authorized distributors.  Please
---  refer to the applicable agreement for further details.
+--  refer to the applicable agreement for further details, at
+--  https://fpgasoftware.intel.com/eula.
 
 
 FUNCTION add_sub_t3c (dataa[0..0], datab[0..0])
 RETURNS ( cout, result[0..0]);
 FUNCTION add_sub_u3c (dataa[1..0], datab[1..0])
 RETURNS ( cout, result[1..0]);
+FUNCTION add_sub_56c (dataa[10..0], datab[10..0])
+RETURNS ( cout, result[10..0]);
+FUNCTION add_sub_46c (dataa[11..0], datab[11..0])
+RETURNS ( cout, result[11..0]);
+FUNCTION add_sub_36c (dataa[12..0], datab[12..0])
+RETURNS ( cout, result[12..0]);
+FUNCTION add_sub_26c (dataa[13..0], datab[13..0])
+RETURNS ( cout, result[13..0]);
+FUNCTION add_sub_16c (dataa[14..0], datab[14..0])
+RETURNS ( cout, result[14..0]);
+FUNCTION add_sub_06c (dataa[15..0], datab[15..0])
+RETURNS ( cout, result[15..0]);
+FUNCTION add_sub_v5c (dataa[16..0], datab[16..0])
+RETURNS ( cout, result[16..0]);
+FUNCTION add_sub_u5c (dataa[17..0], datab[17..0])
+RETURNS ( cout, result[17..0]);
+FUNCTION add_sub_04c (dataa[3..0], datab[3..0])
+RETURNS ( cout, result[3..0]);
+FUNCTION add_sub_14c (dataa[4..0], datab[4..0])
+RETURNS ( cout, result[4..0]);
+FUNCTION add_sub_24c (dataa[5..0], datab[5..0])
+RETURNS ( cout, result[5..0]);
+FUNCTION add_sub_34c (dataa[6..0], datab[6..0])
+RETURNS ( cout, result[6..0]);
+FUNCTION add_sub_44c (dataa[7..0], datab[7..0])
+RETURNS ( cout, result[7..0]);
+FUNCTION add_sub_54c (dataa[8..0], datab[8..0])
+RETURNS ( cout, result[8..0]);
+FUNCTION add_sub_d5c (dataa[9..0], datab[9..0])
+RETURNS ( cout, result[9..0]);
 
---synthesis_resources = lut 450 
+--synthesis_resources = lut 4 
 SUBDESIGN alt_u_div_2le
 ( 
 	denominator[16..0]	:	input;
@@ -33,156 +64,40 @@ SUBDESIGN alt_u_div_2le
 VARIABLE 
 	add_sub_0 : add_sub_t3c;
 	add_sub_1 : add_sub_u3c;
-	add_sub_10_result_int[11..0]	:	WIRE;
-	add_sub_10_cout	:	WIRE;
-	add_sub_10_dataa[10..0]	:	WIRE;
-	add_sub_10_datab[10..0]	:	WIRE;
-	add_sub_10_result[10..0]	:	WIRE;
-	add_sub_11_result_int[12..0]	:	WIRE;
-	add_sub_11_cout	:	WIRE;
-	add_sub_11_dataa[11..0]	:	WIRE;
-	add_sub_11_datab[11..0]	:	WIRE;
-	add_sub_11_result[11..0]	:	WIRE;
-	add_sub_12_result_int[13..0]	:	WIRE;
-	add_sub_12_cout	:	WIRE;
-	add_sub_12_dataa[12..0]	:	WIRE;
-	add_sub_12_datab[12..0]	:	WIRE;
-	add_sub_12_result[12..0]	:	WIRE;
-	add_sub_13_result_int[14..0]	:	WIRE;
-	add_sub_13_cout	:	WIRE;
-	add_sub_13_dataa[13..0]	:	WIRE;
-	add_sub_13_datab[13..0]	:	WIRE;
-	add_sub_13_result[13..0]	:	WIRE;
-	add_sub_14_result_int[15..0]	:	WIRE;
-	add_sub_14_cout	:	WIRE;
-	add_sub_14_dataa[14..0]	:	WIRE;
-	add_sub_14_datab[14..0]	:	WIRE;
-	add_sub_14_result[14..0]	:	WIRE;
-	add_sub_15_result_int[16..0]	:	WIRE;
-	add_sub_15_cout	:	WIRE;
-	add_sub_15_dataa[15..0]	:	WIRE;
-	add_sub_15_datab[15..0]	:	WIRE;
-	add_sub_15_result[15..0]	:	WIRE;
-	add_sub_16_result_int[17..0]	:	WIRE;
-	add_sub_16_cout	:	WIRE;
-	add_sub_16_dataa[16..0]	:	WIRE;
-	add_sub_16_datab[16..0]	:	WIRE;
-	add_sub_16_result[16..0]	:	WIRE;
-	add_sub_17_result_int[18..0]	:	WIRE;
-	add_sub_17_cout	:	WIRE;
-	add_sub_17_dataa[17..0]	:	WIRE;
-	add_sub_17_datab[17..0]	:	WIRE;
-	add_sub_17_result[17..0]	:	WIRE;
-	add_sub_18_result_int[18..0]	:	WIRE;
-	add_sub_18_cout	:	WIRE;
-	add_sub_18_dataa[17..0]	:	WIRE;
-	add_sub_18_datab[17..0]	:	WIRE;
-	add_sub_18_result[17..0]	:	WIRE;
-	add_sub_19_result_int[18..0]	:	WIRE;
-	add_sub_19_cout	:	WIRE;
-	add_sub_19_dataa[17..0]	:	WIRE;
-	add_sub_19_datab[17..0]	:	WIRE;
-	add_sub_19_result[17..0]	:	WIRE;
+	add_sub_10 : add_sub_56c;
+	add_sub_11 : add_sub_46c;
+	add_sub_12 : add_sub_36c;
+	add_sub_13 : add_sub_26c;
+	add_sub_14 : add_sub_16c;
+	add_sub_15 : add_sub_06c;
+	add_sub_16 : add_sub_v5c;
+	add_sub_17 : add_sub_u5c;
+	add_sub_18 : add_sub_u5c;
+	add_sub_19 : add_sub_u5c;
 	add_sub_2_result_int[3..0]	:	WIRE;
 	add_sub_2_cout	:	WIRE;
 	add_sub_2_dataa[2..0]	:	WIRE;
 	add_sub_2_datab[2..0]	:	WIRE;
 	add_sub_2_result[2..0]	:	WIRE;
-	add_sub_20_result_int[18..0]	:	WIRE;
-	add_sub_20_cout	:	WIRE;
-	add_sub_20_dataa[17..0]	:	WIRE;
-	add_sub_20_datab[17..0]	:	WIRE;
-	add_sub_20_result[17..0]	:	WIRE;
-	add_sub_21_result_int[18..0]	:	WIRE;
-	add_sub_21_cout	:	WIRE;
-	add_sub_21_dataa[17..0]	:	WIRE;
-	add_sub_21_datab[17..0]	:	WIRE;
-	add_sub_21_result[17..0]	:	WIRE;
-	add_sub_22_result_int[18..0]	:	WIRE;
-	add_sub_22_cout	:	WIRE;
-	add_sub_22_dataa[17..0]	:	WIRE;
-	add_sub_22_datab[17..0]	:	WIRE;
-	add_sub_22_result[17..0]	:	WIRE;
-	add_sub_23_result_int[18..0]	:	WIRE;
-	add_sub_23_cout	:	WIRE;
-	add_sub_23_dataa[17..0]	:	WIRE;
-	add_sub_23_datab[17..0]	:	WIRE;
-	add_sub_23_result[17..0]	:	WIRE;
-	add_sub_24_result_int[18..0]	:	WIRE;
-	add_sub_24_cout	:	WIRE;
-	add_sub_24_dataa[17..0]	:	WIRE;
-	add_sub_24_datab[17..0]	:	WIRE;
-	add_sub_24_result[17..0]	:	WIRE;
-	add_sub_25_result_int[18..0]	:	WIRE;
-	add_sub_25_cout	:	WIRE;
-	add_sub_25_dataa[17..0]	:	WIRE;
-	add_sub_25_datab[17..0]	:	WIRE;
-	add_sub_25_result[17..0]	:	WIRE;
-	add_sub_26_result_int[18..0]	:	WIRE;
-	add_sub_26_cout	:	WIRE;
-	add_sub_26_dataa[17..0]	:	WIRE;
-	add_sub_26_datab[17..0]	:	WIRE;
-	add_sub_26_result[17..0]	:	WIRE;
-	add_sub_27_result_int[18..0]	:	WIRE;
-	add_sub_27_cout	:	WIRE;
-	add_sub_27_dataa[17..0]	:	WIRE;
-	add_sub_27_datab[17..0]	:	WIRE;
-	add_sub_27_result[17..0]	:	WIRE;
-	add_sub_28_result_int[18..0]	:	WIRE;
-	add_sub_28_cout	:	WIRE;
-	add_sub_28_dataa[17..0]	:	WIRE;
-	add_sub_28_datab[17..0]	:	WIRE;
-	add_sub_28_result[17..0]	:	WIRE;
-	add_sub_29_result_int[18..0]	:	WIRE;
-	add_sub_29_cout	:	WIRE;
-	add_sub_29_dataa[17..0]	:	WIRE;
-	add_sub_29_datab[17..0]	:	WIRE;
-	add_sub_29_result[17..0]	:	WIRE;
-	add_sub_3_result_int[4..0]	:	WIRE;
-	add_sub_3_cout	:	WIRE;
-	add_sub_3_dataa[3..0]	:	WIRE;
-	add_sub_3_datab[3..0]	:	WIRE;
-	add_sub_3_result[3..0]	:	WIRE;
-	add_sub_30_result_int[18..0]	:	WIRE;
-	add_sub_30_cout	:	WIRE;
-	add_sub_30_dataa[17..0]	:	WIRE;
-	add_sub_30_datab[17..0]	:	WIRE;
-	add_sub_30_result[17..0]	:	WIRE;
-	add_sub_31_result_int[18..0]	:	WIRE;
-	add_sub_31_cout	:	WIRE;
-	add_sub_31_dataa[17..0]	:	WIRE;
-	add_sub_31_datab[17..0]	:	WIRE;
-	add_sub_31_result[17..0]	:	WIRE;
-	add_sub_4_result_int[5..0]	:	WIRE;
-	add_sub_4_cout	:	WIRE;
-	add_sub_4_dataa[4..0]	:	WIRE;
-	add_sub_4_datab[4..0]	:	WIRE;
-	add_sub_4_result[4..0]	:	WIRE;
-	add_sub_5_result_int[6..0]	:	WIRE;
-	add_sub_5_cout	:	WIRE;
-	add_sub_5_dataa[5..0]	:	WIRE;
-	add_sub_5_datab[5..0]	:	WIRE;
-	add_sub_5_result[5..0]	:	WIRE;
-	add_sub_6_result_int[7..0]	:	WIRE;
-	add_sub_6_cout	:	WIRE;
-	add_sub_6_dataa[6..0]	:	WIRE;
-	add_sub_6_datab[6..0]	:	WIRE;
-	add_sub_6_result[6..0]	:	WIRE;
-	add_sub_7_result_int[8..0]	:	WIRE;
-	add_sub_7_cout	:	WIRE;
-	add_sub_7_dataa[7..0]	:	WIRE;
-	add_sub_7_datab[7..0]	:	WIRE;
-	add_sub_7_result[7..0]	:	WIRE;
-	add_sub_8_result_int[9..0]	:	WIRE;
-	add_sub_8_cout	:	WIRE;
-	add_sub_8_dataa[8..0]	:	WIRE;
-	add_sub_8_datab[8..0]	:	WIRE;
-	add_sub_8_result[8..0]	:	WIRE;
-	add_sub_9_result_int[10..0]	:	WIRE;
-	add_sub_9_cout	:	WIRE;
-	add_sub_9_dataa[9..0]	:	WIRE;
-	add_sub_9_datab[9..0]	:	WIRE;
-	add_sub_9_result[9..0]	:	WIRE;
+	add_sub_20 : add_sub_u5c;
+	add_sub_21 : add_sub_u5c;
+	add_sub_22 : add_sub_u5c;
+	add_sub_23 : add_sub_u5c;
+	add_sub_24 : add_sub_u5c;
+	add_sub_25 : add_sub_u5c;
+	add_sub_26 : add_sub_u5c;
+	add_sub_27 : add_sub_u5c;
+	add_sub_28 : add_sub_u5c;
+	add_sub_29 : add_sub_u5c;
+	add_sub_3 : add_sub_04c;
+	add_sub_30 : add_sub_u5c;
+	add_sub_31 : add_sub_u5c;
+	add_sub_4 : add_sub_14c;
+	add_sub_5 : add_sub_24c;
+	add_sub_6 : add_sub_34c;
+	add_sub_7 : add_sub_44c;
+	add_sub_8 : add_sub_54c;
+	add_sub_9 : add_sub_d5c;
 	DenominatorIn[593..0]	: WIRE;
 	DenominatorIn_tmp[593..0]	: WIRE;
 	gnd_wire	: WIRE;
@@ -202,163 +117,76 @@ BEGIN
 	add_sub_0.datab[0..0] = DenominatorIn[0..0];
 	add_sub_1.dataa[] = ( StageIn[18..18], NumeratorIn[62..62]);
 	add_sub_1.datab[1..0] = DenominatorIn[19..18];
-	add_sub_10_result_int[] = (0, add_sub_10_dataa[]) - (0, add_sub_10_datab[]);
-	add_sub_10_result[] = add_sub_10_result_int[10..0];
-	add_sub_10_cout = !add_sub_10_result_int[11];
-	add_sub_10_dataa[] = ( StageIn[189..180], NumeratorIn[341..341]);
-	add_sub_10_datab[] = DenominatorIn[190..180];
-	add_sub_11_result_int[] = (0, add_sub_11_dataa[]) - (0, add_sub_11_datab[]);
-	add_sub_11_result[] = add_sub_11_result_int[11..0];
-	add_sub_11_cout = !add_sub_11_result_int[12];
-	add_sub_11_dataa[] = ( StageIn[208..198], NumeratorIn[372..372]);
-	add_sub_11_datab[] = DenominatorIn[209..198];
-	add_sub_12_result_int[] = (0, add_sub_12_dataa[]) - (0, add_sub_12_datab[]);
-	add_sub_12_result[] = add_sub_12_result_int[12..0];
-	add_sub_12_cout = !add_sub_12_result_int[13];
-	add_sub_12_dataa[] = ( StageIn[227..216], NumeratorIn[403..403]);
-	add_sub_12_datab[] = DenominatorIn[228..216];
-	add_sub_13_result_int[] = (0, add_sub_13_dataa[]) - (0, add_sub_13_datab[]);
-	add_sub_13_result[] = add_sub_13_result_int[13..0];
-	add_sub_13_cout = !add_sub_13_result_int[14];
-	add_sub_13_dataa[] = ( StageIn[246..234], NumeratorIn[434..434]);
-	add_sub_13_datab[] = DenominatorIn[247..234];
-	add_sub_14_result_int[] = (0, add_sub_14_dataa[]) - (0, add_sub_14_datab[]);
-	add_sub_14_result[] = add_sub_14_result_int[14..0];
-	add_sub_14_cout = !add_sub_14_result_int[15];
-	add_sub_14_dataa[] = ( StageIn[265..252], NumeratorIn[465..465]);
-	add_sub_14_datab[] = DenominatorIn[266..252];
-	add_sub_15_result_int[] = (0, add_sub_15_dataa[]) - (0, add_sub_15_datab[]);
-	add_sub_15_result[] = add_sub_15_result_int[15..0];
-	add_sub_15_cout = !add_sub_15_result_int[16];
-	add_sub_15_dataa[] = ( StageIn[284..270], NumeratorIn[496..496]);
-	add_sub_15_datab[] = DenominatorIn[285..270];
-	add_sub_16_result_int[] = (0, add_sub_16_dataa[]) - (0, add_sub_16_datab[]);
-	add_sub_16_result[] = add_sub_16_result_int[16..0];
-	add_sub_16_cout = !add_sub_16_result_int[17];
-	add_sub_16_dataa[] = ( StageIn[303..288], NumeratorIn[527..527]);
-	add_sub_16_datab[] = DenominatorIn[304..288];
-	add_sub_17_result_int[] = (0, add_sub_17_dataa[]) - (0, add_sub_17_datab[]);
-	add_sub_17_result[] = add_sub_17_result_int[17..0];
-	add_sub_17_cout = !add_sub_17_result_int[18];
-	add_sub_17_dataa[] = ( StageIn[322..306], NumeratorIn[558..558]);
-	add_sub_17_datab[] = DenominatorIn[323..306];
-	add_sub_18_result_int[] = (0, add_sub_18_dataa[]) - (0, add_sub_18_datab[]);
-	add_sub_18_result[] = add_sub_18_result_int[17..0];
-	add_sub_18_cout = !add_sub_18_result_int[18];
-	add_sub_18_dataa[] = ( StageIn[340..324], NumeratorIn[589..589]);
-	add_sub_18_datab[] = DenominatorIn[341..324];
-	add_sub_19_result_int[] = (0, add_sub_19_dataa[]) - (0, add_sub_19_datab[]);
-	add_sub_19_result[] = add_sub_19_result_int[17..0];
-	add_sub_19_cout = !add_sub_19_result_int[18];
-	add_sub_19_dataa[] = ( StageIn[358..342], NumeratorIn[620..620]);
-	add_sub_19_datab[] = DenominatorIn[359..342];
+	add_sub_10.dataa[] = ( StageIn[189..180], NumeratorIn[341..341]);
+	add_sub_10.datab[10..0] = DenominatorIn[190..180];
+	add_sub_11.dataa[] = ( StageIn[208..198], NumeratorIn[372..372]);
+	add_sub_11.datab[11..0] = DenominatorIn[209..198];
+	add_sub_12.dataa[] = ( StageIn[227..216], NumeratorIn[403..403]);
+	add_sub_12.datab[12..0] = DenominatorIn[228..216];
+	add_sub_13.dataa[] = ( StageIn[246..234], NumeratorIn[434..434]);
+	add_sub_13.datab[13..0] = DenominatorIn[247..234];
+	add_sub_14.dataa[] = ( StageIn[265..252], NumeratorIn[465..465]);
+	add_sub_14.datab[14..0] = DenominatorIn[266..252];
+	add_sub_15.dataa[] = ( StageIn[284..270], NumeratorIn[496..496]);
+	add_sub_15.datab[15..0] = DenominatorIn[285..270];
+	add_sub_16.dataa[] = ( StageIn[303..288], NumeratorIn[527..527]);
+	add_sub_16.datab[16..0] = DenominatorIn[304..288];
+	add_sub_17.dataa[] = ( StageIn[322..306], NumeratorIn[558..558]);
+	add_sub_17.datab[17..0] = DenominatorIn[323..306];
+	add_sub_18.dataa[] = ( StageIn[340..324], NumeratorIn[589..589]);
+	add_sub_18.datab[17..0] = DenominatorIn[341..324];
+	add_sub_19.dataa[] = ( StageIn[358..342], NumeratorIn[620..620]);
+	add_sub_19.datab[17..0] = DenominatorIn[359..342];
 	add_sub_2_result_int[] = (0, add_sub_2_dataa[]) - (0, add_sub_2_datab[]);
 	add_sub_2_result[] = add_sub_2_result_int[2..0];
 	add_sub_2_cout = !add_sub_2_result_int[3];
 	add_sub_2_dataa[] = ( StageIn[37..36], NumeratorIn[93..93]);
 	add_sub_2_datab[] = DenominatorIn[38..36];
-	add_sub_20_result_int[] = (0, add_sub_20_dataa[]) - (0, add_sub_20_datab[]);
-	add_sub_20_result[] = add_sub_20_result_int[17..0];
-	add_sub_20_cout = !add_sub_20_result_int[18];
-	add_sub_20_dataa[] = ( StageIn[376..360], NumeratorIn[651..651]);
-	add_sub_20_datab[] = DenominatorIn[377..360];
-	add_sub_21_result_int[] = (0, add_sub_21_dataa[]) - (0, add_sub_21_datab[]);
-	add_sub_21_result[] = add_sub_21_result_int[17..0];
-	add_sub_21_cout = !add_sub_21_result_int[18];
-	add_sub_21_dataa[] = ( StageIn[394..378], NumeratorIn[682..682]);
-	add_sub_21_datab[] = DenominatorIn[395..378];
-	add_sub_22_result_int[] = (0, add_sub_22_dataa[]) - (0, add_sub_22_datab[]);
-	add_sub_22_result[] = add_sub_22_result_int[17..0];
-	add_sub_22_cout = !add_sub_22_result_int[18];
-	add_sub_22_dataa[] = ( StageIn[412..396], NumeratorIn[713..713]);
-	add_sub_22_datab[] = DenominatorIn[413..396];
-	add_sub_23_result_int[] = (0, add_sub_23_dataa[]) - (0, add_sub_23_datab[]);
-	add_sub_23_result[] = add_sub_23_result_int[17..0];
-	add_sub_23_cout = !add_sub_23_result_int[18];
-	add_sub_23_dataa[] = ( StageIn[430..414], NumeratorIn[744..744]);
-	add_sub_23_datab[] = DenominatorIn[431..414];
-	add_sub_24_result_int[] = (0, add_sub_24_dataa[]) - (0, add_sub_24_datab[]);
-	add_sub_24_result[] = add_sub_24_result_int[17..0];
-	add_sub_24_cout = !add_sub_24_result_int[18];
-	add_sub_24_dataa[] = ( StageIn[448..432], NumeratorIn[775..775]);
-	add_sub_24_datab[] = DenominatorIn[449..432];
-	add_sub_25_result_int[] = (0, add_sub_25_dataa[]) - (0, add_sub_25_datab[]);
-	add_sub_25_result[] = add_sub_25_result_int[17..0];
-	add_sub_25_cout = !add_sub_25_result_int[18];
-	add_sub_25_dataa[] = ( StageIn[466..450], NumeratorIn[806..806]);
-	add_sub_25_datab[] = DenominatorIn[467..450];
-	add_sub_26_result_int[] = (0, add_sub_26_dataa[]) - (0, add_sub_26_datab[]);
-	add_sub_26_result[] = add_sub_26_result_int[17..0];
-	add_sub_26_cout = !add_sub_26_result_int[18];
-	add_sub_26_dataa[] = ( StageIn[484..468], NumeratorIn[837..837]);
-	add_sub_26_datab[] = DenominatorIn[485..468];
-	add_sub_27_result_int[] = (0, add_sub_27_dataa[]) - (0, add_sub_27_datab[]);
-	add_sub_27_result[] = add_sub_27_result_int[17..0];
-	add_sub_27_cout = !add_sub_27_result_int[18];
-	add_sub_27_dataa[] = ( StageIn[502..486], NumeratorIn[868..868]);
-	add_sub_27_datab[] = DenominatorIn[503..486];
-	add_sub_28_result_int[] = (0, add_sub_28_dataa[]) - (0, add_sub_28_datab[]);
-	add_sub_28_result[] = add_sub_28_result_int[17..0];
-	add_sub_28_cout = !add_sub_28_result_int[18];
-	add_sub_28_dataa[] = ( StageIn[520..504], NumeratorIn[899..899]);
-	add_sub_28_datab[] = DenominatorIn[521..504];
-	add_sub_29_result_int[] = (0, add_sub_29_dataa[]) - (0, add_sub_29_datab[]);
-	add_sub_29_result[] = add_sub_29_result_int[17..0];
-	add_sub_29_cout = !add_sub_29_result_int[18];
-	add_sub_29_dataa[] = ( StageIn[538..522], NumeratorIn[930..930]);
-	add_sub_29_datab[] = DenominatorIn[539..522];
-	add_sub_3_result_int[] = (0, add_sub_3_dataa[]) - (0, add_sub_3_datab[]);
-	add_sub_3_result[] = add_sub_3_result_int[3..0];
-	add_sub_3_cout = !add_sub_3_result_int[4];
-	add_sub_3_dataa[] = ( StageIn[56..54], NumeratorIn[124..124]);
-	add_sub_3_datab[] = DenominatorIn[57..54];
-	add_sub_30_result_int[] = (0, add_sub_30_dataa[]) - (0, add_sub_30_datab[]);
-	add_sub_30_result[] = add_sub_30_result_int[17..0];
-	add_sub_30_cout = !add_sub_30_result_int[18];
-	add_sub_30_dataa[] = ( StageIn[556..540], NumeratorIn[961..961]);
-	add_sub_30_datab[] = DenominatorIn[557..540];
-	add_sub_31_result_int[] = (0, add_sub_31_dataa[]) - (0, add_sub_31_datab[]);
-	add_sub_31_result[] = add_sub_31_result_int[17..0];
-	add_sub_31_cout = !add_sub_31_result_int[18];
-	add_sub_31_dataa[] = ( StageIn[574..558], NumeratorIn[992..992]);
-	add_sub_31_datab[] = DenominatorIn[575..558];
-	add_sub_4_result_int[] = (0, add_sub_4_dataa[]) - (0, add_sub_4_datab[]);
-	add_sub_4_result[] = add_sub_4_result_int[4..0];
-	add_sub_4_cout = !add_sub_4_result_int[5];
-	add_sub_4_dataa[] = ( StageIn[75..72], NumeratorIn[155..155]);
-	add_sub_4_datab[] = DenominatorIn[76..72];
-	add_sub_5_result_int[] = (0, add_sub_5_dataa[]) - (0, add_sub_5_datab[]);
-	add_sub_5_result[] = add_sub_5_result_int[5..0];
-	add_sub_5_cout = !add_sub_5_result_int[6];
-	add_sub_5_dataa[] = ( StageIn[94..90], NumeratorIn[186..186]);
-	add_sub_5_datab[] = DenominatorIn[95..90];
-	add_sub_6_result_int[] = (0, add_sub_6_dataa[]) - (0, add_sub_6_datab[]);
-	add_sub_6_result[] = add_sub_6_result_int[6..0];
-	add_sub_6_cout = !add_sub_6_result_int[7];
-	add_sub_6_dataa[] = ( StageIn[113..108], NumeratorIn[217..217]);
-	add_sub_6_datab[] = DenominatorIn[114..108];
-	add_sub_7_result_int[] = (0, add_sub_7_dataa[]) - (0, add_sub_7_datab[]);
-	add_sub_7_result[] = add_sub_7_result_int[7..0];
-	add_sub_7_cout = !add_sub_7_result_int[8];
-	add_sub_7_dataa[] = ( StageIn[132..126], NumeratorIn[248..248]);
-	add_sub_7_datab[] = DenominatorIn[133..126];
-	add_sub_8_result_int[] = (0, add_sub_8_dataa[]) - (0, add_sub_8_datab[]);
-	add_sub_8_result[] = add_sub_8_result_int[8..0];
-	add_sub_8_cout = !add_sub_8_result_int[9];
-	add_sub_8_dataa[] = ( StageIn[151..144], NumeratorIn[279..279]);
-	add_sub_8_datab[] = DenominatorIn[152..144];
-	add_sub_9_result_int[] = (0, add_sub_9_dataa[]) - (0, add_sub_9_datab[]);
-	add_sub_9_result[] = add_sub_9_result_int[9..0];
-	add_sub_9_cout = !add_sub_9_result_int[10];
-	add_sub_9_dataa[] = ( StageIn[170..162], NumeratorIn[310..310]);
-	add_sub_9_datab[] = DenominatorIn[171..162];
+	add_sub_20.dataa[] = ( StageIn[376..360], NumeratorIn[651..651]);
+	add_sub_20.datab[17..0] = DenominatorIn[377..360];
+	add_sub_21.dataa[] = ( StageIn[394..378], NumeratorIn[682..682]);
+	add_sub_21.datab[17..0] = DenominatorIn[395..378];
+	add_sub_22.dataa[] = ( StageIn[412..396], NumeratorIn[713..713]);
+	add_sub_22.datab[17..0] = DenominatorIn[413..396];
+	add_sub_23.dataa[] = ( StageIn[430..414], NumeratorIn[744..744]);
+	add_sub_23.datab[17..0] = DenominatorIn[431..414];
+	add_sub_24.dataa[] = ( StageIn[448..432], NumeratorIn[775..775]);
+	add_sub_24.datab[17..0] = DenominatorIn[449..432];
+	add_sub_25.dataa[] = ( StageIn[466..450], NumeratorIn[806..806]);
+	add_sub_25.datab[17..0] = DenominatorIn[467..450];
+	add_sub_26.dataa[] = ( StageIn[484..468], NumeratorIn[837..837]);
+	add_sub_26.datab[17..0] = DenominatorIn[485..468];
+	add_sub_27.dataa[] = ( StageIn[502..486], NumeratorIn[868..868]);
+	add_sub_27.datab[17..0] = DenominatorIn[503..486];
+	add_sub_28.dataa[] = ( StageIn[520..504], NumeratorIn[899..899]);
+	add_sub_28.datab[17..0] = DenominatorIn[521..504];
+	add_sub_29.dataa[] = ( StageIn[538..522], NumeratorIn[930..930]);
+	add_sub_29.datab[17..0] = DenominatorIn[539..522];
+	add_sub_3.dataa[] = ( StageIn[56..54], NumeratorIn[124..124]);
+	add_sub_3.datab[3..0] = DenominatorIn[57..54];
+	add_sub_30.dataa[] = ( StageIn[556..540], NumeratorIn[961..961]);
+	add_sub_30.datab[17..0] = DenominatorIn[557..540];
+	add_sub_31.dataa[] = ( StageIn[574..558], NumeratorIn[992..992]);
+	add_sub_31.datab[17..0] = DenominatorIn[575..558];
+	add_sub_4.dataa[] = ( StageIn[75..72], NumeratorIn[155..155]);
+	add_sub_4.datab[4..0] = DenominatorIn[76..72];
+	add_sub_5.dataa[] = ( StageIn[94..90], NumeratorIn[186..186]);
+	add_sub_5.datab[5..0] = DenominatorIn[95..90];
+	add_sub_6.dataa[] = ( StageIn[113..108], NumeratorIn[217..217]);
+	add_sub_6.datab[6..0] = DenominatorIn[114..108];
+	add_sub_7.dataa[] = ( StageIn[132..126], NumeratorIn[248..248]);
+	add_sub_7.datab[7..0] = DenominatorIn[133..126];
+	add_sub_8.dataa[] = ( StageIn[151..144], NumeratorIn[279..279]);
+	add_sub_8.datab[8..0] = DenominatorIn[152..144];
+	add_sub_9.dataa[] = ( StageIn[170..162], NumeratorIn[310..310]);
+	add_sub_9.datab[9..0] = DenominatorIn[171..162];
 	DenominatorIn[] = DenominatorIn_tmp[];
 	DenominatorIn_tmp[] = ( DenominatorIn[575..0], ( gnd_wire, denominator[]));
 	gnd_wire = B"0";
-	nose[] = ( B"00000000000000000000000000000000", add_sub_31_cout, B"00000000000000000000000000000000", add_sub_30_cout, B"00000000000000000000000000000000", add_sub_29_cout, B"00000000000000000000000000000000", add_sub_28_cout, B"00000000000000000000000000000000", add_sub_27_cout, B"00000000000000000000000000000000", add_sub_26_cout, B"00000000000000000000000000000000", add_sub_25_cout, B"00000000000000000000000000000000", add_sub_24_cout, B"00000000000000000000000000000000", add_sub_23_cout, B"00000000000000000000000000000000", add_sub_22_cout, B"00000000000000000000000000000000", add_sub_21_cout, B"00000000000000000000000000000000", add_sub_20_cout, B"00000000000000000000000000000000", add_sub_19_cout, B"00000000000000000000000000000000", add_sub_18_cout, B"00000000000000000000000000000000", add_sub_17_cout, B"00000000000000000000000000000000", add_sub_16_cout, B"00000000000000000000000000000000", add_sub_15_cout, B"00000000000000000000000000000000", add_sub_14_cout, B"00000000000000000000000000000000", add_sub_13_cout, B"00000000000000000000000000000000", add_sub_12_cout, B"00000000000000000000000000000000", add_sub_11_cout, B"00000000000000000000000000000000", add_sub_10_cout, B"00000000000000000000000000000000", add_sub_9_cout, B"00000000000000000000000000000000", add_sub_8_cout, B"00000000000000000000000000000000", add_sub_7_cout, B"00000000000000000000000000000000", add_sub_6_cout, B"00000000000000000000000000000000", add_sub_5_cout, B"00000000000000000000000000000000", add_sub_4_cout, B"00000000000000000000000000000000", add_sub_3_cout, B"00000000000000000000000000000000", add_sub_2_cout, B"00000000000000000000000000000000", add_sub_1.cout, B"00000000000000000000000000000000", add_sub_0.cout);
+	nose[] = ( B"00000000000000000000000000000000", add_sub_31.cout, B"00000000000000000000000000000000", add_sub_30.cout, B"00000000000000000000000000000000", add_sub_29.cout, B"00000000000000000000000000000000", add_sub_28.cout, B"00000000000000000000000000000000", add_sub_27.cout, B"00000000000000000000000000000000", add_sub_26.cout, B"00000000000000000000000000000000", add_sub_25.cout, B"00000000000000000000000000000000", add_sub_24.cout, B"00000000000000000000000000000000", add_sub_23.cout, B"00000000000000000000000000000000", add_sub_22.cout, B"00000000000000000000000000000000", add_sub_21.cout, B"00000000000000000000000000000000", add_sub_20.cout, B"00000000000000000000000000000000", add_sub_19.cout, B"00000000000000000000000000000000", add_sub_18.cout, B"00000000000000000000000000000000", add_sub_17.cout, B"00000000000000000000000000000000", add_sub_16.cout, B"00000000000000000000000000000000", add_sub_15.cout, B"00000000000000000000000000000000", add_sub_14.cout, B"00000000000000000000000000000000", add_sub_13.cout, B"00000000000000000000000000000000", add_sub_12.cout, B"00000000000000000000000000000000", add_sub_11.cout, B"00000000000000000000000000000000", add_sub_10.cout, B"00000000000000000000000000000000", add_sub_9.cout, B"00000000000000000000000000000000", add_sub_8.cout, B"00000000000000000000000000000000", add_sub_7.cout, B"00000000000000000000000000000000", add_sub_6.cout, B"00000000000000000000000000000000", add_sub_5.cout, B"00000000000000000000000000000000", add_sub_4.cout, B"00000000000000000000000000000000", add_sub_3.cout, B"00000000000000000000000000000000", add_sub_2_cout, B"00000000000000000000000000000000", add_sub_1.cout, B"00000000000000000000000000000000", add_sub_0.cout);
 	NumeratorIn[] = NumeratorIn_tmp[];
 	NumeratorIn_tmp[] = ( NumeratorIn[1023..0], numerator[]);
-	prestg[] = ( add_sub_31_result[], add_sub_30_result[], add_sub_29_result[], add_sub_28_result[], add_sub_27_result[], add_sub_26_result[], add_sub_25_result[], add_sub_24_result[], add_sub_23_result[], add_sub_22_result[], add_sub_21_result[], add_sub_20_result[], add_sub_19_result[], add_sub_18_result[], add_sub_17_result[], GND, add_sub_16_result[], B"00", add_sub_15_result[], B"000", add_sub_14_result[], B"0000", add_sub_13_result[], B"00000", add_sub_12_result[], B"000000", add_sub_11_result[], B"0000000", add_sub_10_result[], B"00000000", add_sub_9_result[], B"000000000", add_sub_8_result[], B"0000000000", add_sub_7_result[], B"00000000000", add_sub_6_result[], B"000000000000", add_sub_5_result[], B"0000000000000", add_sub_4_result[], B"00000000000000", add_sub_3_result[], B"000000000000000", add_sub_2_result[], B"0000000000000000", add_sub_1.result[], B"00000000000000000", add_sub_0.result[]);
+	prestg[] = ( add_sub_31.result[], add_sub_30.result[], add_sub_29.result[], add_sub_28.result[], add_sub_27.result[], add_sub_26.result[], add_sub_25.result[], add_sub_24.result[], add_sub_23.result[], add_sub_22.result[], add_sub_21.result[], add_sub_20.result[], add_sub_19.result[], add_sub_18.result[], add_sub_17.result[], GND, add_sub_16.result[], B"00", add_sub_15.result[], B"000", add_sub_14.result[], B"0000", add_sub_13.result[], B"00000", add_sub_12.result[], B"000000", add_sub_11.result[], B"0000000", add_sub_10.result[], B"00000000", add_sub_9.result[], B"000000000", add_sub_8.result[], B"0000000000", add_sub_7.result[], B"00000000000", add_sub_6.result[], B"000000000000", add_sub_5.result[], B"0000000000000", add_sub_4.result[], B"00000000000000", add_sub_3.result[], B"000000000000000", add_sub_2_result[], B"0000000000000000", add_sub_1.result[], B"00000000000000000", add_sub_0.result[]);
 	quotient[] = quotient_tmp[];
 	quotient_tmp[] = ( (! selnose[0..0]), (! selnose[33..33]), (! selnose[66..66]), (! selnose[99..99]), (! selnose[132..132]), (! selnose[165..165]), (! selnose[198..198]), (! selnose[231..231]), (! selnose[264..264]), (! selnose[297..297]), (! selnose[330..330]), (! selnose[363..363]), (! selnose[396..396]), (! selnose[429..429]), (! selnose[462..462]), (! selnose[495..495]), (! selnose[528..528]), (! selnose[561..561]), (! selnose[594..594]), (! selnose[627..627]), (! selnose[660..660]), (! selnose[693..693]), (! selnose[726..726]), (! selnose[759..759]), (! selnose[792..792]), (! selnose[825..825]), (! selnose[858..858]), (! selnose[891..891]), (! selnose[924..924]), (! selnose[957..957]), (! selnose[990..990]), (! selnose[1023..1023]));
 	remainder[16..0] = StageIn[592..576];

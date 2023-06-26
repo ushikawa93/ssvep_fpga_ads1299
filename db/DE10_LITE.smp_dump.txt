@@ -334,39 +334,6 @@ state_ads.ads_pch6 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 state_ads.ads_pch7 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 state_ads.ads_pch8 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
-State Machine - |DE10_LITE|lockin_wrapper:lockin_3|IIR_filter_simple:iir_filter_cuad|state
-Name state.update_output state.divide_y state.calculate_y state.calculate_products state.register_data state.save_old_data state.idle 
-state.idle 0 0 0 0 0 0 0 
-state.save_old_data 0 0 0 0 0 1 1 
-state.register_data 0 0 0 0 1 0 1 
-state.calculate_products 0 0 0 1 0 0 1 
-state.calculate_y 0 0 1 0 0 0 1 
-state.divide_y 0 1 0 0 0 0 1 
-state.update_output 1 0 0 0 0 0 1 
-
-State Machine - |DE10_LITE|lockin_wrapper:lockin_3|IIR_filter_simple:iir_filter_fase|state
-Name state.update_output state.divide_y state.calculate_y state.calculate_products state.register_data state.save_old_data state.idle 
-state.idle 0 0 0 0 0 0 0 
-state.save_old_data 0 0 0 0 0 1 1 
-state.register_data 0 0 0 0 1 0 1 
-state.calculate_products 0 0 0 1 0 0 1 
-state.calculate_y 0 0 1 0 0 0 1 
-state.divide_y 0 1 0 0 0 0 1 
-state.update_output 1 0 0 0 0 0 1 
-
-State Machine - |DE10_LITE|lockin_wrapper:lockin_3|lockin_state_machine:lockin_inst|state
-Name state.update_index state.acum_sum state.acum_substract state.save_product state.calc_product state.acommodate_ref state.fetch_ref state.fetch_old_sample state.idle state.clean 
-state.clean 0 0 0 0 0 0 0 0 0 0 
-state.idle 0 0 0 0 0 0 0 0 1 1 
-state.fetch_old_sample 0 0 0 0 0 0 0 1 0 1 
-state.fetch_ref 0 0 0 0 0 0 1 0 0 1 
-state.acommodate_ref 0 0 0 0 0 1 0 0 0 1 
-state.calc_product 0 0 0 0 1 0 0 0 0 1 
-state.save_product 0 0 0 1 0 0 0 0 0 1 
-state.acum_substract 0 0 1 0 0 0 0 0 0 1 
-state.acum_sum 0 1 0 0 0 0 0 0 0 1 
-state.update_index 1 0 0 0 0 0 0 0 0 1 
-
 State Machine - |DE10_LITE|lockin_wrapper:lockin_2|IIR_filter_simple:iir_filter_cuad|state
 Name state.update_output state.divide_y state.calculate_y state.calculate_products state.register_data state.save_old_data state.idle 
 state.idle 0 0 0 0 0 0 0 

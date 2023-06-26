@@ -1,10 +1,10 @@
-/* Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition */
+/* Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition */
 JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(10M50DAF484) Path("G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/") File("DE10_LITE.sof") MfrSpec(OpMask(1));
+		Device PartName(10M50DAF484) Path("D:/Documents/programas_quartus/ssvep_fpga_ads1299/") File("DE10_LITE.pof") MfrSpec(OpMask(1) Child_OpMask(2 1 0));
 
 ChainEnd;
 

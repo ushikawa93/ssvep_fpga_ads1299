@@ -1,6 +1,6 @@
 Assembler report for DE10_LITE
-Thu Jun 22 15:21:34 2023
-Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Fri Jun 23 17:53:30 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/DE10_LITE.sof
+  5. Assembler Device Options: D:/Documents/programas_quartus/ssvep_fpga_ads1299/DE10_LITE.sof
   6. Assembler Messages
 
 
@@ -18,9 +18,9 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2017  Intel Corporation. All rights reserved.
+Copyright (C) 2022  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -30,14 +30,15 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Jun 22 15:21:34 2023 ;
+; Assembler Status      ; Successful - Fri Jun 23 17:53:30 2023 ;
 ; Revision Name         ; DE10_LITE                             ;
 ; Top-level Entity Name ; DE10_LITE                             ;
 ; Family                ; MAX 10                                ;
@@ -52,23 +53,23 @@ refer to the applicable agreement for further details.
 +--------+---------+---------------+
 
 
-+------------------------------------------------------------------------+
-; Assembler Generated Files                                              ;
-+------------------------------------------------------------------------+
-; File Name                                                              ;
-+------------------------------------------------------------------------+
-; G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/DE10_LITE.sof ;
-+------------------------------------------------------------------------+
++-----------------------------------------------------------------+
+; Assembler Generated Files                                       ;
++-----------------------------------------------------------------+
+; File Name                                                       ;
++-----------------------------------------------------------------+
+; D:/Documents/programas_quartus/ssvep_fpga_ads1299/DE10_LITE.sof ;
++-----------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Assembler Device Options: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/DE10_LITE.sof ;
-+----------------+---------------------------------------------------------------------------------+
-; Option         ; Setting                                                                         ;
-+----------------+---------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x01E9FFD2                                                                      ;
-; Checksum       ; 0x01E9FFD2                                                                      ;
-+----------------+---------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Assembler Device Options: D:/Documents/programas_quartus/ssvep_fpga_ads1299/DE10_LITE.sof ;
++----------------+--------------------------------------------------------------------------+
+; Option         ; Setting                                                                  ;
++----------------+--------------------------------------------------------------------------+
+; JTAG usercode  ; 0x01539EE5                                                               ;
+; Checksum       ; 0x01539EE5                                                               ;
++----------------+--------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -76,16 +77,16 @@ refer to the applicable agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Jun 22 15:20:48 2023
+    Info: Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+    Info: Processing started: Fri Jun 23 17:53:26 2023
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off DE10_LITE -c DE10_LITE
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4832 megabytes
-    Info: Processing ended: Thu Jun 22 15:21:35 2023
-    Info: Elapsed time: 00:00:47
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Peak virtual memory: 4824 megabytes
+    Info: Processing ended: Fri Jun 23 17:53:30 2023
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:04
 
 

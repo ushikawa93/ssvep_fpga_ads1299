@@ -20,6 +20,8 @@ module lockin_wrapper
 	  output [0:6] display_3,
 	  output [0:6] display_4,
 	  output [0:6] display_5,
+	  
+	  output [31:0] signal_out,
 	
 	  output [31:0] amplitud_salida,
 	  output estimulo_signal
@@ -264,6 +266,7 @@ defparam estimulo.M = M;
 /////////////////////////////////////////////////
 
 assign amplitud_salida = amplitud_final  ;
+assign signal_out = x_pa_reg;
 
 
 

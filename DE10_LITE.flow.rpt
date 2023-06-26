@@ -1,6 +1,6 @@
 Flow report for DE10_LITE
-Thu Jun 22 15:24:50 2023
-Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Fri Jun 23 17:53:49 2023
+Quartus Prime Version 22.1std.0 Build 915 10/25/2022 SC Lite Edition
 
 
 ---------------------
@@ -21,9 +21,9 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2017  Intel Corporation. All rights reserved.
+Copyright (C) 2022  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -33,32 +33,33 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
-+----------------------------------------------------------------------------------+
-; Flow Summary                                                                     ;
-+------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 22 15:24:50 2023       ;
-; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
-; Revision Name                      ; DE10_LITE                                   ;
-; Top-level Entity Name              ; DE10_LITE                                   ;
-; Family                             ; MAX 10                                      ;
-; Device                             ; 10M50DAF484C7G                              ;
-; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 45,155 / 49,760 ( 91 % )                    ;
-;     Total combinational functions  ; 39,747 / 49,760 ( 80 % )                    ;
-;     Dedicated logic registers      ; 11,030 / 49,760 ( 22 % )                    ;
-; Total registers                    ; 11030                                       ;
-; Total pins                         ; 117 / 360 ( 33 % )                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 405,088 / 1,677,312 ( 24 % )                ;
-; Embedded Multiplier 9-bit elements ; 276 / 288 ( 96 % )                          ;
-; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
-; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
-; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
-+------------------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------------+
+; Flow Summary                                                                        ;
++------------------------------------+------------------------------------------------+
+; Flow Status                        ; Successful - Fri Jun 23 17:53:49 2023          ;
+; Quartus Prime Version              ; 22.1std.0 Build 915 10/25/2022 SC Lite Edition ;
+; Revision Name                      ; DE10_LITE                                      ;
+; Top-level Entity Name              ; DE10_LITE                                      ;
+; Family                             ; MAX 10                                         ;
+; Device                             ; 10M50DAF484C7G                                 ;
+; Timing Models                      ; Final                                          ;
+; Total logic elements               ; 30,842 / 49,760 ( 62 % )                       ;
+;     Total combinational functions  ; 27,148 / 49,760 ( 55 % )                       ;
+;     Dedicated logic registers      ; 7,158 / 49,760 ( 14 % )                        ;
+; Total registers                    ; 7158                                           ;
+; Total pins                         ; 117 / 360 ( 33 % )                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 216,832 / 1,677,312 ( 13 % )                   ;
+; Embedded Multiplier 9-bit elements ; 184 / 288 ( 64 % )                             ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                                 ;
+; UFM blocks                         ; 0 / 1 ( 0 % )                                  ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                                  ;
++------------------------------------+------------------------------------------------+
 
 
 +-----------------------------------------+
@@ -66,7 +67,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/22/2023 14:52:43 ;
+; Start date & time ; 06/23/2023 17:50:35 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; DE10_LITE           ;
 +-------------------+---------------------+
@@ -77,7 +78,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id                        ;
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
-; COMPILER_SIGNATURE_ID               ; 193989710746336.168745636214292        ; --            ; --          ; --                                ;
+; COMPILER_SIGNATURE_ID               ; 10995770589197.168755343511160         ; --            ; --          ; --                                ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_timing           ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_boundary_scan    ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; Off                                    ; --            ; --          ; eda_board_design_signal_integrity ;
@@ -106,31 +107,31 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+-----------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------+
-; Flow Elapsed Time                                                                                                             ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:16:50     ; 1.0                     ; 5247 MB             ; 00:02:42                           ;
-; Fitter                    ; 00:11:33     ; 1.1                     ; 5961 MB             ; 00:16:43                           ;
-; Assembler                 ; 00:00:46     ; 1.0                     ; 4832 MB             ; 00:00:07                           ;
-; TimeQuest Timing Analyzer ; 00:02:00     ; 1.7                     ; 5150 MB             ; 00:01:23                           ;
-; EDA Netlist Writer        ; 00:01:10     ; 1.0                     ; 4852 MB             ; 00:00:10                           ;
-; Total                     ; 00:32:19     ; --                      ; --                  ; 00:21:05                           ;
-+---------------------------+--------------+-------------------------+---------------------+------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Flow Elapsed Time                                                                                                        ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
+; Analysis & Synthesis ; 00:00:50     ; 1.0                     ; 5268 MB             ; 00:00:52                           ;
+; Fitter               ; 00:01:54     ; 1.5                     ; 6185 MB             ; 00:02:13                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 4824 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:12     ; 2.9                     ; 5096 MB             ; 00:00:31                           ;
+; EDA Netlist Writer   ; 00:00:04     ; 1.0                     ; 4824 MB             ; 00:00:04                           ;
+; Total                ; 00:03:04     ; --                      ; --                  ; 00:03:43                           ;
++----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Flow OS Summary                                                                         ;
-+---------------------------+------------------+------------+------------+----------------+
-; Module Name               ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
-+---------------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-BRUHM76  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter                    ; DESKTOP-BRUHM76  ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler                 ; DESKTOP-BRUHM76  ; Windows 10 ; 10.0       ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-BRUHM76  ; Windows 10 ; 10.0       ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-BRUHM76  ; Windows 10 ; 10.0       ; x86_64         ;
-+---------------------------+------------------+------------+------------+----------------+
++------------------------------------------------------------------------------------+
+; Flow OS Summary                                                                    ;
++----------------------+------------------+------------+------------+----------------+
+; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
++----------------------+------------------+------------+------------+----------------+
+; Analysis & Synthesis ; oficina          ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; oficina          ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; oficina          ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; oficina          ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; oficina          ; Windows 10 ; 10.0       ; x86_64         ;
++----------------------+------------------+------------+------------+----------------+
 
 
 ------------

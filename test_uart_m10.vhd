@@ -15,7 +15,7 @@ use IEEE.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 
 library work;
-use work.ads131.all;
+use work.ads1299.all;
 use work.utilidades.all;
 
 
@@ -143,11 +143,13 @@ architecture rtl of DE10_LITE is
 	signal output_estimulo_2 : std_logic;
 	signal output_estimulo_3 : std_logic;
 	
-	constant N_LOCKIN : integer := 8;
-	constant fs : integer := 1000;
+	signal acond_signal : std_logic_vector (31 downto 0);
+	
+	constant N_LOCKIN : integer := 16;
+	constant fs : integer := 250;
 	
 	constant f_lockin_1 :integer := 16;
-	constant f_lockin_2 :integer := 12;
+	constant f_lockin_2 :integer := 10;
 	constant f_lockin_3 :integer := 20;
 	
 	component lockin_wrapper is
@@ -171,6 +173,8 @@ architecture rtl of DE10_LITE is
 				display_3 : out std_logic_vector(0 TO 6);
 				display_4 : out std_logic_vector(0 TO 6);
 				display_5 : out std_logic_vector(0 TO 6);
+				
+				signal_out : out std_logic_vector(31 downto 0);
 				
 				amplitud_salida : out std_logic_vector (31 downto 0);
 				estimulo_signal : out std_logic
@@ -240,7 +244,7 @@ begin
 						
 						data_in_3 => amplitud_lockin_2,
 						
-						data_in_4 => amplitud_lockin_3,
+						data_in_4 => acond_signal,
 						
 						pin_tx => ARDUINO_IO(0),
 						pin_rx => ARDUINO_IO(1),
@@ -311,17 +315,18 @@ begin
    -- -- bit [2:0]	: DR 000=64kHz a 110 1kHz 
 	SWDR <= (SW(9)&SW(8)&SW(7));
 	with  SWDR select
-	prog_aux_dr <= "010" when "010", "011" when "011",
-						"100" when "100", "101" when "101",
-						"110" when others; -- 1kHz cuando es 110 y en casos inválidos
+	prog_aux_dr <= "001" when "001", "010" when "010",
+						"011" when "011", "100" when "100",
+						"101" when "101", "110" when others; -- 1kHz cuando es 110 y en caso inválido 111
 	prog_config1 <= CONFIG1(7 downto 3)&prog_aux_dr;
 	
 	
 	SWGA <= (SW(6)&SW(5)&SW(4));
 	with  SWGA select
-	prog_aux_gain <= "010" when "010", "100" when "100",
+	prog_aux_gain <=  "001" when "001", "010" when "010",
+							"011" when "011", "100" when "100",
 							"101" when "101", "110" when "110",
-							"001" when others; -- 1 cuando es 001 y en casos inválidos
+							"000" when others; -- 1 cuando es 001 y en casos inválidos
 	
 	SWMU	<= (SW(3)&SW(2));
 	with  SWMU select
@@ -453,6 +458,7 @@ begin
 					
 					-- Enciende pwdn-rst
 					when ads_c1=>
+							ads_start <= '1';
 							ads_rp <= '1';
 							ads_return_delay <= ads_c2;
 							ads_delay_count <= 200_000_000;
@@ -466,10 +472,12 @@ begin
 							ads_return_transmit <= ads_c20;
 							state_ads <= ADS_TRANSMIT_START;	
 					when ads_c20=>
+							ads_rp <= '0';
 							ads_byte_to_send <= RESET;
 							ads_return_transmit <= ads_c21;
 							state_ads <= ADS_TRANSMIT_START;	
 					when ads_c21=>
+							ads_rp <= '1';
 							ads_delay_count <= 200_000_000;
 							ads_return_delay <= ads_c22;
 							state_ads <= ADS_DELAY;
@@ -501,8 +509,8 @@ begin
 							ads_return_wreg <= ads_c7;					
 							state_ads <= ADS_WREG_START;
 					when ads_c7=>
-							ads_wreg_reg <= DIR_FAULT;
-							ads_wreg_val <= FAULT;
+							ads_wreg_reg <= DIR_LOFF;
+							ads_wreg_val <= LOFF;
 							ads_return_wreg <= ads_c10;					
 							state_ads <= ADS_WREG_START;
 					when ads_c10=>
@@ -692,6 +700,8 @@ begin
 		display_4 => HEX4,
 		display_5 => HEX5,
 		
+		signal_out => acond_signal,
+		
 	   amplitud_salida => amplitud_lockin_1,
 		estimulo_signal => output_estimulo_1
 	);
@@ -722,31 +732,31 @@ begin
 		estimulo_signal => output_estimulo_2
 	);
 	
-		
-		
-	lockin_3: lockin_wrapper
-	Generic map(
-	
-		f_lockin => f_lockin_3
-	
-	)
-	Port map( 
-		clk => mclock,
-	   reset_n => (not(master_reset) and KEY(0)),
-	
-	   x => processed_data,
-	   x_valid=> sum_ready,
-		
-		display_0 => open,
-		display_1 => open,
-		display_2 => open,
-		display_3 => open,
-		display_4 => open,
-		display_5 => open,
-		
-	   amplitud_salida => amplitud_lockin_3,
-		estimulo_signal => output_estimulo_3
-	);
+--		
+--		
+--	lockin_3: lockin_wrapper
+--	Generic map(
+--	
+--		f_lockin => f_lockin_3
+--	
+--	)
+--	Port map( 
+--		clk => mclock,
+--	   reset_n => (not(master_reset) and KEY(0)),
+--	
+--	   x => processed_data,
+--	   x_valid=> sum_ready,
+--		
+--		display_0 => open,
+--		display_1 => open,
+--		display_2 => open,
+--		display_3 => open,
+--		display_4 => open,
+--		display_5 => open,
+--		
+--	   amplitud_salida => amplitud_lockin_3,
+--		estimulo_signal => output_estimulo_3
+--	);
 
 	GPIO(31) <= output_estimulo_1;
 	GPIO(33) <= output_estimulo_2;
