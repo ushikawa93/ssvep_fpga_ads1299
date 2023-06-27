@@ -39,12 +39,12 @@ module IIR_filter
 
 // Parametros de un filtro IIR para wn = 0.00125, cuantizados a 16 bits
 // Sino pueden ingresarse mientras enable no este en 1:
-parameter A1 = 65536; 
-	parameter log2A1 = 16;
+localparam A1 = 65536; 
+	localparam log2A1 = 16;
 	
-parameter A2_default = -65279;
-parameter B1_default = 128;
-parameter B2_default = 128;
+localparam A2_default = -65279;
+localparam B1_default = 128;
+localparam B2_default = 128;
 
 reg signed [63:0] B1,B2,A2;
 

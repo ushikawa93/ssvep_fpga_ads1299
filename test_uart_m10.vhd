@@ -145,7 +145,8 @@ architecture rtl of DE10_LITE is
 	
 	signal acond_signal : std_logic_vector (31 downto 0);
 	
-	constant N_LOCKIN : integer := 16;
+	constant N_LOCKIN_MA : integer := 30;
+	constant N_LOCKIN_IIR : integer := 1;
 	constant fs : integer := 250;
 	
 	constant f_lockin_1 :integer := 16;
@@ -155,9 +156,10 @@ architecture rtl of DE10_LITE is
 	component lockin_wrapper is
 			generic(
 				Q_in : integer := 32;
-				N_lockin : integer := N_LOCKIN;
+				N_filtro_ma : integer := N_LOCKIN_MA;
 				fs : integer := fs;
-				f_lockin : integer := 16
+				f_lockin : integer := 16;
+				N_filtro_iir : integer := N_LOCKIN_IIR
 			);
 			port(
 				
@@ -354,6 +356,8 @@ begin
 			LEDR(0) <= '1';
 			debugA <= "11";
 		else 
+					
+		
 			LEDR(0) <= '0';
 			if (rising_edge(mclock)) then
 				case state_ads is
@@ -448,7 +452,7 @@ begin
 							-- LED 9 ON CUANDO NO SE CONFIGURÓ
 							LEDR(9) <= '1';
 							-- Pines a 0
-							ads_start <= '0';
+							ads_start <= '0'; --MATI
 							ads_cs <= '0';
 							ads_rp <= '0';
 							-- Delay						
@@ -458,7 +462,7 @@ begin
 					
 					-- Enciende pwdn-rst
 					when ads_c1=>
-							ads_start <= '1';
+							ads_start <= '1'; --MATI
 							ads_rp <= '1';
 							ads_return_delay <= ads_c2;
 							ads_delay_count <= 200_000_000;
@@ -707,31 +711,31 @@ begin
 	);
 	
 
-	lockin_2: lockin_wrapper
-	Generic map(
-	
-		f_lockin => f_lockin_2
-	
-	)
-	Port map( 
-	
-		clk => mclock,
-	   reset_n => (not(master_reset) and KEY(0)),
-	
-	   x => processed_data,
-	   x_valid=> sum_ready,
-		
-		display_0 => open,
-		display_1 => open,
-		display_2 => open,
-		display_3 => open,
-		display_4 => open,
-		display_5 => open,
-		
-	   amplitud_salida => amplitud_lockin_2,
-		estimulo_signal => output_estimulo_2
-	);
-	
+--	lockin_2: lockin_wrapper
+--	Generic map(
+--	
+--		f_lockin => f_lockin_2
+--	
+--	)
+--	Port map( 
+--	
+--		clk => mclock,
+--	   reset_n => (not(master_reset) and KEY(0)),
+--	
+--	   x => processed_data,
+--	   x_valid=> sum_ready,
+--		
+--		display_0 => open,
+--		display_1 => open,
+--		display_2 => open,
+--		display_3 => open,
+--		display_4 => open,
+--		display_5 => open,
+--		
+--	   amplitud_salida => amplitud_lockin_2,
+--		estimulo_signal => output_estimulo_2
+--	);
+--	
 --		
 --		
 --	lockin_3: lockin_wrapper

@@ -3,9 +3,10 @@ module lockin_wrapper
 
 	#(
 		parameter integer Q_in = 32,
-		parameter integer N_lockin = 16,
+		parameter integer N_filtro_ma = 8,
 		parameter integer fs = 1000,
-		parameter integer f_lockin = 16
+		parameter integer f_lockin = 16,
+		parameter integer N_filtro_iir = 8
 	 )
 	
 	( input clk,
@@ -40,9 +41,7 @@ localparam integer Q_ref = 16;
 
 localparam integer Q_calculos_internos = 64;
 localparam integer simulate_data = 0;
-//localparam integer M = (simulate_data==1)? 16 : 64 ;
-
-localparam integer M = (fs/f_lockin <= 512 ) ? fs/f_lockin : 4 ;
+localparam integer M = (simulate_data==1)? 16 : ( (fs/f_lockin <= 512 ) ? fs/f_lockin : 4 );
 
 
 /////////////////////////////////////////////////
@@ -132,57 +131,112 @@ defparam lockin_inst.Q_in = Q_in;
 defparam lockin_inst.Q_out = Q_calculos_internos;
 defparam lockin_inst.Q_ref = Q_ref;
 defparam lockin_inst.M = M;
-defparam lockin_inst.N = N_lockin;
+defparam lockin_inst.N = N_filtro_ma;
 
 /////////////////////////////////////////////////
 // ==== Filtros IIR extra (porque puedo)  =========
 /////////////////////////////////////////////////
 
+		
 // Salidas del lockin en fase y cuadratura con su data_valid
-wire data_iir_fase_valid,data_iir_cuad_valid,data_iir_valid;
-wire signed [Q_calculos_internos-1:0] data_iir_fase;
-wire signed [Q_calculos_internos-1:0] data_iir_cuad;
+wire data_iir_valid;
+wire signed [Q_calculos_internos-1:0] data_iir_fase ;
+wire signed [Q_calculos_internos-1:0] data_iir_cuad ;
 
-assign data_iir_valid = data_iir_fase_valid && data_iir_cuad_valid;
+genvar i;
+
+generate 
+
+if(N_filtro_iir > 0) begin: iir_generate
+
+	// Salidas del lockin en fase y cuadratura con su data_valid
+	wire data_iir_fase_in_valid [0:N_filtro_iir-1];
+	wire data_iir_fase_out_valid [0:N_filtro_iir-1];
+
+	wire data_iir_cuad_in_valid [0:N_filtro_iir-1];
+	wire data_iir_cuad_out_valid [0:N_filtro_iir-1];
+
+	wire signed [Q_calculos_internos-1:0] data_iir_fase_in [0:N_filtro_iir-1] ;
+	wire signed [Q_calculos_internos-1:0] data_iir_fase_out [0:N_filtro_iir-1] ;
+
+	wire signed [Q_calculos_internos-1:0] data_iir_cuad_in [0:N_filtro_iir-1] ;
+	wire signed [Q_calculos_internos-1:0] data_iir_cuad_out [0:N_filtro_iir-1] ;
+
+	assign data_iir_fase_in_valid[0] = data_li_valid;
+	assign data_iir_cuad_in_valid[0] = data_li_valid;
+
+	assign data_iir_fase_in[0] = data_li_fase;
+	assign data_iir_cuad_in[0] = data_li_cuad;
 
 
-IIR_filter_simple iir_filter_fase
-(
+	for (i = 0;i<N_filtro_iir;i=i+1)	begin: iir_for_loop
 
-	// Entradas de control
-	.clock(clk),
-	.reset(reset_n),
-		
-	// Interfaz avalon streaming de entrada
-	.data_valid(data_li_valid),
-	.data(data_li_fase),	
+			IIR_filter_simple iir_filter_fase
+			(
+
+				// Entradas de control
+				.clock(clk),
+				.reset(reset_n),
+					
+				// Interfaz avalon streaming de entrada
+				.data_valid(data_iir_fase_in_valid[i]),
+				.data(data_iir_fase_in[i]),	
+				
+				// Interfaz avalon streaming de salida
+				.data_out(data_iir_fase_out[i]),
+				.data_out_valid(data_iir_fase_out_valid[i])
+
+			);
+
+			defparam iir_filter_fase.Q_in = Q_calculos_internos;
+
+			IIR_filter_simple iir_filter_cuad
+			(
+
+				// Entradas de control
+				.clock(clk),
+				.reset(reset_n),
+					
+				// Interfaz avalon streaming de entrada
+				.data_valid(data_iir_cuad_in_valid[i]),
+				.data(data_iir_cuad_in[i]),	
+				
+				// Interfaz avalon streaming de salida
+				.data_out(data_iir_cuad_out[i]),
+				.data_out_valid(data_iir_cuad_out_valid[i])
+
+			);
+			
+			if( i < N_filtro_iir-1 ) begin: iir_if_loop
+			
+				assign data_iir_fase_in_valid[i+1] = data_iir_fase_out_valid[i];
+				assign data_iir_cuad_in_valid[i+1] = data_iir_cuad_out_valid[i];
+
+				assign data_iir_fase_in[i+1] = data_iir_fase_out[i];
+				assign data_iir_cuad_in[i+1] = data_iir_cuad_out[i];
+			end
+
+			defparam iir_filter_cuad.Q_in = Q_calculos_internos;
+		end
+
+
+	assign data_iir_valid = data_iir_fase_out_valid [N_filtro_iir-1] && data_iir_cuad_out_valid [N_filtro_iir-1];
+	assign data_iir_fase = data_iir_fase_out [N_filtro_iir-1];
+	assign data_iir_cuad = data_iir_cuad_out [N_filtro_iir-1];
 	
-	// Interfaz avalon streaming de salida
-	.data_out(data_iir_fase),
-	.data_out_valid(data_iir_fase_valid)
-
-);
-
-defparam iir_filter_fase.Q_in = Q_calculos_internos;
-
-IIR_filter_simple iir_filter_cuad
-(
-
-	// Entradas de control
-	.clock(clk),
-	.reset(reset_n),
-		
-	// Interfaz avalon streaming de entrada
-	.data_valid(data_li_valid),
-	.data(data_li_cuad),	
+end
+else
+begin
 	
-	// Interfaz avalon streaming de salida
-	.data_out(data_iir_cuad),
-	.data_out_valid(data_iir_cuad_valid)
+	assign data_iir_valid = data_li_valid;
+	assign data_iir_fase = data_li_fase;
+	assign data_iir_cuad = data_li_cuad;	
 
-);
+end
+endgenerate
 
-defparam iir_filter_cuad.Q_in = Q_calculos_internos;
+
+
 
 /////////////////////////////////////////////////
 // ========== Calculo de resultados  =============
@@ -209,7 +263,7 @@ calculo_resultados resultados_inst
 );
 
 defparam resultados_inst.M = M;
-defparam resultados_inst.N = N_lockin;
+defparam resultados_inst.N = N_filtro_ma;
 defparam resultados_inst.Q_ref = Q_ref;
 defparam resultados_inst.Q_in = Q_calculos_internos;
 defparam resultados_inst.Q_out = Q_calculos_internos;
@@ -219,7 +273,7 @@ defparam resultados_inst.Q_out = Q_calculos_internos;
 /////////////////////////////////////////////////
 
 
-parameter att_display = 8;
+localparam att_display = 8;
 
 wire [31:0] numero_a_mostrar = amplitud_final_lenta >> att_display;
 wire [3:0] bcd0,bcd1,bcd2,bcd3,bcd4,bcd5;

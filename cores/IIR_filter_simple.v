@@ -24,9 +24,9 @@ module IIR_filter_simple
 localparam Q_coeff = 16;
 
 localparam A1 = 65536; 	
-localparam A2 = -65279;
-localparam B1 = 128;
-localparam B2 = 128;
+localparam A2 = -64718;
+localparam B1 = 409;
+localparam B2 = 409;
 
 
 
