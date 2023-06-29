@@ -146,12 +146,12 @@ architecture rtl of DE10_LITE is
 	signal acond_signal : std_logic_vector (31 downto 0);
 	
 	constant N_LOCKIN_MA : integer := 30;
-	constant N_LOCKIN_IIR : integer := 1;
+	constant N_LOCKIN_IIR : integer := 0;
 	constant fs : integer := 250;
 	
-	constant f_lockin_1 :integer := 16;
-	constant f_lockin_2 :integer := 10;
-	constant f_lockin_3 :integer := 20;
+	constant f_lockin_1 :integer := 18;
+	constant f_lockin_2 :integer := 16;
+	constant f_lockin_3 :integer := 14;
 	
 	component lockin_wrapper is
 			generic(
@@ -239,14 +239,15 @@ begin
 		port map(	clk_in => mclock,
 						rst => master_reset,
 						
-						data_in_1 => processed_data, 
+						--data_in_1 => processed_data, 
+						data_in_1 => acond_signal, 
 						data_en => txpc_data_en,
 						
 						data_in_2 => amplitud_lockin_1,
 						
 						data_in_3 => amplitud_lockin_2,
 						
-						data_in_4 => acond_signal,
+						data_in_4 => amplitud_lockin_3,
 						
 						pin_tx => ARDUINO_IO(0),
 						pin_rx => ARDUINO_IO(1),
@@ -711,56 +712,56 @@ begin
 	);
 	
 
---	lockin_2: lockin_wrapper
---	Generic map(
---	
---		f_lockin => f_lockin_2
---	
---	)
---	Port map( 
---	
---		clk => mclock,
---	   reset_n => (not(master_reset) and KEY(0)),
---	
---	   x => processed_data,
---	   x_valid=> sum_ready,
---		
---		display_0 => open,
---		display_1 => open,
---		display_2 => open,
---		display_3 => open,
---		display_4 => open,
---		display_5 => open,
---		
---	   amplitud_salida => amplitud_lockin_2,
---		estimulo_signal => output_estimulo_2
---	);
---	
---		
---		
---	lockin_3: lockin_wrapper
---	Generic map(
---	
---		f_lockin => f_lockin_3
---	
---	)
---	Port map( 
---		clk => mclock,
---	   reset_n => (not(master_reset) and KEY(0)),
---	
---	   x => processed_data,
---	   x_valid=> sum_ready,
---		
---		display_0 => open,
---		display_1 => open,
---		display_2 => open,
---		display_3 => open,
---		display_4 => open,
---		display_5 => open,
---		
---	   amplitud_salida => amplitud_lockin_3,
---		estimulo_signal => output_estimulo_3
---	);
+	lockin_2: lockin_wrapper
+	Generic map(
+	
+		f_lockin => f_lockin_2
+	
+	)
+	Port map( 
+	
+		clk => mclock,
+	   reset_n => (not(master_reset) and KEY(0)),
+	
+	   x => processed_data,
+	   x_valid=> sum_ready,
+		
+		display_0 => open,
+		display_1 => open,
+		display_2 => open,
+		display_3 => open,
+		display_4 => open,
+		display_5 => open,
+		
+	   amplitud_salida => amplitud_lockin_2,
+		estimulo_signal => output_estimulo_2
+	);
+	
+		
+		
+	lockin_3: lockin_wrapper
+	Generic map(
+	
+		f_lockin => f_lockin_3
+	
+	)
+	Port map( 
+		clk => mclock,
+	   reset_n => (not(master_reset) and KEY(0)),
+	
+	   x => processed_data,
+	   x_valid=> sum_ready,
+		
+		display_0 => open,
+		display_1 => open,
+		display_2 => open,
+		display_3 => open,
+		display_4 => open,
+		display_5 => open,
+		
+	   amplitud_salida => amplitud_lockin_3,
+		estimulo_signal => output_estimulo_3
+	);
 
 	GPIO(31) <= output_estimulo_1;
 	GPIO(33) <= output_estimulo_2;

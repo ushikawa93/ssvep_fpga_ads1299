@@ -1,10 +1,10 @@
 --lpm_add_sub CARRY_CHAIN="MANUAL" CARRY_CHAIN_LENGTH=48 DEVICE_FAMILY="MAX 10" LPM_DIRECTION="SUB" LPM_WIDTH=55 cout dataa datab result
---VERSION_BEGIN 17.1 cbx_cycloneii 2017:10:25:18:06:53:SJ cbx_lpm_add_sub 2017:10:25:18:06:53:SJ cbx_mgl 2017:10:25:18:08:29:SJ cbx_nadder 2017:10:25:18:06:53:SJ cbx_stratix 2017:10:25:18:06:53:SJ cbx_stratixii 2017:10:25:18:06:53:SJ  VERSION_END
+--VERSION_BEGIN 22.1 cbx_cycloneii 2022:10:25:15:36:38:SC cbx_lpm_add_sub 2022:10:25:15:36:38:SC cbx_mgl 2022:10:25:15:36:55:SC cbx_nadder 2022:10:25:15:36:38:SC cbx_stratix 2022:10:25:15:36:38:SC cbx_stratixii 2022:10:25:15:36:38:SC  VERSION_END
 
 
--- Copyright (C) 2017  Intel Corporation. All rights reserved.
+-- Copyright (C) 2022  Intel Corporation. All rights reserved.
 --  Your use of Intel Corporation's design tools, logic functions 
---  and other software and tools, and its AMPP partner logic 
+--  and other software and tools, and any partner logic 
 --  functions, and any output files from any of the foregoing 
 --  (including device programming or simulation files), and any 
 --  associated documentation or information are expressly subject 
@@ -14,7 +14,8 @@
 --  agreement, including, without limitation, that your use is for
 --  the sole purpose of programming logic devices manufactured by
 --  Intel and sold by Intel or its authorized distributors.  Please
---  refer to the applicable agreement for further details.
+--  refer to the applicable agreement for further details, at
+--  https://fpgasoftware.intel.com/eula.
 
 
 
