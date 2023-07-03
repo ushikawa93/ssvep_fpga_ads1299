@@ -1,0 +1,92 @@
+{G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module segment7
+
+Top level modules:
+	segment7
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module sqrt
+
+Top level modules:
+	sqrt
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module clock_divider
+
+Top level modules:
+	clock_divider
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/IIR_filter_simple.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/IIR_filter_simple.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module IIR_filter_simple
+
+Top level modules:
+	IIR_filter_simple
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/simulation/mySimulation/calculo_resultados_sin_sqrt.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/simulation/mySimulation/calculo_resultados_sin_sqrt.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module calculo_resultados
+
+Top level modules:
+	calculo_resultados
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module BCD_display
+
+Top level modules:
+	BCD_display
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/simulation/mySimulation/ssvep_lockin_tb.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/simulation/mySimulation/ssvep_lockin_tb.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module ssvep_lockin_tb
+
+Top level modules:
+	ssvep_lockin_tb
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module data_source
+
+Top level modules:
+	data_source
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module descomponer_en_digitos
+
+Top level modules:
+	descomponer_en_digitos
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module lockin_state_machine
+
+Top level modules:
+	lockin_state_machine
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module remove_mean_value_state_machine
+
+Top level modules:
+	remove_mean_value_state_machine
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module lockin_wrapper
+
+Top level modules:
+	lockin_wrapper
+
+} {} {}} {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v} {1 {vlog -work work -stats=none {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module generador_estimulo
+
+Top level modules:
+	generador_estimulo
+
+} {} {}}

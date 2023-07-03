@@ -145,13 +145,13 @@ architecture rtl of DE10_LITE is
 	
 	signal acond_signal : std_logic_vector (31 downto 0);
 	
-	constant N_LOCKIN_MA : integer := 30;
+	constant N_LOCKIN_MA : integer := 32;
 	constant N_LOCKIN_IIR : integer := 0;
 	constant fs : integer := 250;
 	
-	constant f_lockin_1 :integer := 18;
+	constant f_lockin_1 :integer := 14;
 	constant f_lockin_2 :integer := 16;
-	constant f_lockin_3 :integer := 14;
+	constant f_lockin_3 :integer := 18;
 	
 	component lockin_wrapper is
 			generic(
@@ -708,6 +708,7 @@ begin
 		signal_out => acond_signal,
 		
 	   amplitud_salida => amplitud_lockin_1,
+		
 		estimulo_signal => output_estimulo_1
 	);
 	

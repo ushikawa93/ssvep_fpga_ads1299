@@ -1,0 +1,241 @@
+# Reading C:/intelFPGA/17.1/modelsim_ase/tcl/vsim/pref.tcl
+# do DE10_LITE_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying C:/intelFPGA/17.1/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:36 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v 
+# -- Compiling module remove_mean_value_state_machine
+# 
+# Top level modules:
+# 	remove_mean_value_state_machine
+# End time: 15:33:37 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:37 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v 
+# -- Compiling module clock_divider
+# 
+# Top level modules:
+# 	clock_divider
+# End time: 15:33:38 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:38 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v 
+# -- Compiling module segment7
+# 
+# Top level modules:
+# 	segment7
+# End time: 15:33:38 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:38 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v 
+# -- Compiling module descomponer_en_digitos
+# 
+# Top level modules:
+# 	descomponer_en_digitos
+# End time: 15:33:39 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:39 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v 
+# -- Compiling module BCD_display
+# 
+# Top level modules:
+# 	BCD_display
+# End time: 15:33:39 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:39 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v 
+# -- Compiling module lockin_wrapper
+# 
+# Top level modules:
+# 	lockin_wrapper
+# End time: 15:33:40 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:40 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v 
+# -- Compiling module sqrt
+# 
+# Top level modules:
+# 	sqrt
+# End time: 15:33:40 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:41 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v 
+# -- Compiling module calculo_resultados
+# 
+# Top level modules:
+# 	calculo_resultados
+# End time: 15:33:41 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:41 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v 
+# -- Compiling module generador_estimulo
+# 
+# Top level modules:
+# 	generador_estimulo
+# End time: 15:33:41 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:41 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v 
+# -- Compiling module master_pll_altpll
+# 
+# Top level modules:
+# 	master_pll_altpll
+# End time: 15:33:42 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:43 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v 
+# -- Compiling module data_source
+# 
+# Top level modules:
+# 	data_source
+# End time: 15:33:43 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vlog -vlog01compat -work work +incdir+G:/Mi\ unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:43 on Jul 01,2023
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores" G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v 
+# -- Compiling module lockin_state_machine
+# 
+# Top level modules:
+# 	lockin_state_machine
+# End time: 15:33:44 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:44 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity spi_master
+# -- Compiling architecture rtl of spi_master
+# ** Warning: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd(505): (vcom-1937) Choice in CASE statement alternative must be locally static.
+# ** Warning: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd(513): (vcom-1937) Choice in CASE statement alternative must be locally static.
+# ** Warning: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd(521): (vcom-1937) Choice in CASE statement alternative must be locally static.
+# ** Warning: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd(530): (vcom-1937) Choice in CASE statement alternative must be locally static.
+# End time: 15:33:44 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 4
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:44 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling entity master_pll
+# -- Compiling architecture SYN of master_pll
+# End time: 15:33:45 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:45 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package NUMERIC_STD
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_SIGNED
+# -- Compiling package utilidades
+# -- Compiling package body utilidades
+# -- Loading package utilidades
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Compiling entity bpp
+# -- Compiling architecture rtl of bpp
+# End time: 15:33:46 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:46 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Compiling entity fsm_txpc
+# -- Compiling architecture rtl of fsm_txpc
+# -- Loading entity bpp
+# -- Loading entity spi_master
+# End time: 15:33:46 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:46 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Compiling package ADS1299
+# -- Compiling package body ADS1299
+# -- Loading package ADS1299
+# End time: 15:33:47 on Jul 01,2023, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd}
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 15:33:47 on Jul 01,2023
+# vcom -reportprogress 300 -93 -work work G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd 
+# -- Loading package STANDARD
+# -- Loading package TEXTIO
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package STD_LOGIC_UNSIGNED
+# -- Loading package NUMERIC_STD
+# -- Loading package ADS1299
+# -- Loading package STD_LOGIC_SIGNED
+# -- Loading package utilidades
+# -- Compiling entity DE10_LITE
+# -- Compiling architecture rtl of DE10_LITE
+# -- Loading entity master_pll
+# -- Loading entity fsm_txpc
+# ** Error: (vcom-11) Could not find work.parallel_sum.
+# ** Error (suppressible): G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(266): (vcom-1195) Cannot find expanded name "work.parallel_sum".
+# ** Error: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(266): Unknown expanded name.
+# -- Loading entity spi_master
+# ** Error: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(696): (vcom-1436) Actual expression (infix expression) of formal "reset_n" is not globally static.
+# ** Error: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(724): (vcom-1436) Actual expression (infix expression) of formal "reset_n" is not globally static.
+# ** Error: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(750): (vcom-1436) Actual expression (infix expression) of formal "reset_n" is not globally static.
+# ** Error: G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd(770): VHDL Compiler exiting
+# End time: 15:33:47 on Jul 01,2023, Elapsed time: 0:00:00
+# Errors: 7, Warnings: 0
+# ** Error: C:/intelFPGA/17.1/modelsim_ase/win32aloem/vcom failed.
+# Error in macro ./DE10_LITE_run_msim_rtl_verilog.do line 25
+# C:/intelFPGA/17.1/modelsim_ase/win32aloem/vcom failed.
+#     while executing
+# "vcom -93 -work work {G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd}"
+# reading C:/intelFPGA/17.1/modelsim_ase/win32aloem/../modelsim.ini
+# Loading project mySimulation

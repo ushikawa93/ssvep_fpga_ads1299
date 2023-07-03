@@ -89,7 +89,7 @@ end
 wire x_pa_valid_reg;
 wire signed [Q_in-1:0] x_pa_reg;
 
-remove_mean_value_pipelined filtro_pa(
+remove_mean_value_state_machine filtro_pa(
 	.clock(clk),
 	.reset(reset_n),
 
@@ -101,7 +101,7 @@ remove_mean_value_pipelined filtro_pa(
 );
 
 defparam filtro_pa.Q_in = Q_in;
-defparam filtro_pa.M = M;
+defparam filtro_pa.M = 32;
 
 
 /////////////////////////////////////////////////
@@ -319,7 +319,8 @@ defparam estimulo.M = M;
 // ================== Salidas ===================
 /////////////////////////////////////////////////
 
-assign amplitud_salida = amplitud_final  ;
+assign amplitud_salida = amplitud_final;
+
 assign signal_out = x_pa_reg;
 
 

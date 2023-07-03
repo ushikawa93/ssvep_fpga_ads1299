@@ -1,0 +1,33 @@
+# Compile of ssvep_lockin_tb.v was successful.
+# Compile of sqrt.v was successful.
+# Compile of BCD_display.v was successful.
+# Compile of calculo_resultados.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of data_source.v was successful.
+# Compile of descomponer_en_digitos.v was successful.
+# Compile of generador_estimulo.v was successful.
+# Compile of IIR_filter_simple.v was successful.
+# Compile of lockin_state_machine.v was successful.
+# Compile of lockin_wrapper.v was successful.
+# Compile of remove_mean_value_state_machine.v was successful.
+# Compile of segment7.v was successful.
+# 13 compiles, 0 failed with no errors.
+# Load canceled
+# Break key hit
+restart -f
+# No Design Loaded!
+# Load canceled
+# Compile of ssvep_lockin_tb.v was successful.
+# Compile of sqrt.v was successful.
+# Compile of BCD_display.v was successful.
+# Compile of calculo_resultados.v was successful.
+# Compile of clock_divider.v was successful.
+# Compile of data_source.v was successful.
+# Compile of descomponer_en_digitos.v was successful.
+# Compile of generador_estimulo.v was successful.
+# Compile of IIR_filter_simple.v was successful.
+# Compile of lockin_state_machine.v was successful.
+# Compile of lockin_wrapper.v was successful.
+# Compile of remove_mean_value_state_machine.v was successful.
+# Compile of segment7.v was successful.
+# 13 compiles, 0 failed with no errors.

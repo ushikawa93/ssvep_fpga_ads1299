@@ -25,7 +25,7 @@ reg [15:0] index_retrasado;
 
 reg signed [Q_in-1:0] data_mem [0:M-1];
 
-reg clear;
+//reg clear;
 
 reg signed [Q_in-1:0] acumulador; initial acumulador=0;
 
@@ -56,11 +56,11 @@ begin
 		data_in_etapa3<=0;
 		data_out_etapa3<=0;
 		
-		clear <= 1;		
+		//clear <= 1;		
 		
 	end
 
-	else if(data_in_valid && reset)
+	else if(data_in_valid)
 	begin
 	
 		index <= (index== (M-1))? 0: index+1;
@@ -91,14 +91,14 @@ begin
 		data_out_valid <= data_valid_aux4;
 				
 	end 	
-	
+	/*
 	else if(clear)	// Clear arrays		
 	begin
 		i<=i+1;
 		data_mem[i] <= 0;
 		clear<=(i==M)? 0:1;
 	end
-	
+	*/
 	else	
 		data_out_valid<=0;	
 	

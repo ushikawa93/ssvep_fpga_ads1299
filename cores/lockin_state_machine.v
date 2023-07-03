@@ -162,8 +162,8 @@ begin
 			update_index:
 			begin
 
-				index_signal <= (index_signal+1) % (M*N);
-				index_ref <= (index_signal+1) % (M);
+				index_signal <= (index_signal == (M*N-1))? 0 : (index_signal+1);
+				index_ref <= (index_signal == M-1)? 0: index_ref+1;
 				
 				
 				data_out_valid_reg <= 1;		
@@ -172,6 +172,9 @@ begin
 				
 				state <= idle;
 			end
+			
+			default:
+				state <= idle;
 	
 		endcase
 	end

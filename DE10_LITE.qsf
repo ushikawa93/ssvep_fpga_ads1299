@@ -6,7 +6,7 @@ set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY "DE10_LITE"
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.0.0
-set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:32:16 NOVEMBER 10,2022"
 
 #============================================================
@@ -374,9 +374,9 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
-set_global_assignment -name EDA_SIMULATION_TOOL "QuestaSim (VHDL)"
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
-set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_timing
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
@@ -395,8 +395,14 @@ set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -
 set_global_assignment -name EXTERNAL_FLASH_FALLBACK_ADDRESS 00000000
 set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
 set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE "SINGLE IMAGE WITH ERAM"
+set_global_assignment -name EDA_TEST_BENCH_ENABLE_STATUS TEST_BENCH_MODE -section_id eda_simulation
+set_global_assignment -name EDA_NATIVELINK_SIMULATION_TEST_BENCH ssvep_lockin_tb -section_id eda_simulation
+set_global_assignment -name EDA_TEST_BENCH_NAME ssvep_lockin_tb -section_id eda_simulation
+set_global_assignment -name EDA_DESIGN_INSTANCE_NAME NA -section_id ssvep_lockin_tb
+set_global_assignment -name EDA_TEST_BENCH_MODULE_NAME ssvep_lockin_tb -section_id ssvep_lockin_tb
+set_global_assignment -name EDA_TEST_BENCH_FILE simulation/mySimulation/ssvep_lockin_tb.v -section_id ssvep_lockin_tb
+set_global_assignment -name VERILOG_FILE cores/remove_mean_value_state_machine.v
 set_global_assignment -name VERILOG_FILE cores/IIR_filter.v
-set_global_assignment -name VERILOG_FILE cores/remove_mean_value_pipelined.v
 set_global_assignment -name SOURCE_FILE LU_tables/x16_12b.mem
 set_global_assignment -name VERILOG_FILE cores/data_source.v
 set_global_assignment -name VERILOG_FILE cores/clock_divider.v
@@ -425,5 +431,5 @@ set_global_assignment -name VERILOG_FILE cores/calculo_resultados.v
 set_global_assignment -name VERILOG_FILE cores/generador_estimulo.v
 set_global_assignment -name VERILOG_FILE cores/IIR_filter_simple.v
 set_global_assignment -name VHDL_FILE cores/ads1299.vhd
-set_global_assignment -name SLD_FILE db/stp2_auto_stripped.stp
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name SLD_FILE db/stp2_auto_stripped.stp

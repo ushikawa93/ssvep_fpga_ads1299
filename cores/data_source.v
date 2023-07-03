@@ -14,6 +14,7 @@ module data_source(
 );
 
 parameter M = 16;
+parameter counter_max = 32;
 
 /////////////////////////////////////////////////
 // =============== Señal =================
@@ -25,6 +26,9 @@ reg [31:0] buffer [0:M-1];
 reg [15:0] n;
 reg enable_reg;
 reg [31:0] data_reg;
+reg [7:0] counter;
+
+
 
 always @ (posedge clk or negedge reset_n) enable_reg <= (!reset_n)? 0 : enable; 
 
@@ -34,11 +38,13 @@ begin
 	if(!reset_n)
 	begin
 		n <= 0;
+		counter <= 0;
 	end
 
 	else if (enable_reg)
 	begin
-		n <= (n == M-1) ? 0:n+1;
+		counter <= (counter == counter_max)? 0 : counter +1;
+		n <= (counter == counter_max)? ( (n == M-1) ? 0:n+1 ) : n;
 	end
 	
 end
@@ -48,7 +54,7 @@ end
 /////////////////////////////////////////////////	
 
 assign data = buffer[n];
-assign data_valid = enable_reg;
+assign data_valid = enable_reg && (counter == counter_max);
 
 
 endmodule

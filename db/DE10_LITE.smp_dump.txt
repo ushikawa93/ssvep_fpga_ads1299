@@ -334,6 +334,14 @@ state_ads.ads_pch6 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 state_ads.ads_pch7 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 state_ads.ads_pch8 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
 
+State Machine - |DE10_LITE|lockin_wrapper:lockin_3|calculo_resultados:resultados_inst|state
+Name state.multiply state.register state.notify state.idle state.sum 
+state.idle 0 0 0 0 0 
+state.notify 0 0 1 1 0 
+state.register 0 1 0 1 0 
+state.multiply 1 0 0 1 0 
+state.sum 0 0 0 1 1 
+
 State Machine - |DE10_LITE|lockin_wrapper:lockin_3|lockin_state_machine:lockin_inst|state
 Name state.update_index state.acum_sum state.acum_substract state.save_product state.calc_product state.acommodate_ref state.fetch_ref state.fetch_old_sample state.idle state.clean 
 state.clean 0 0 0 0 0 0 0 0 0 0 
@@ -346,6 +354,25 @@ state.save_product 0 0 0 1 0 0 0 0 0 1
 state.acum_substract 0 0 1 0 0 0 0 0 0 1 
 state.acum_sum 0 1 0 0 0 0 0 0 0 1 
 state.update_index 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_LITE|lockin_wrapper:lockin_3|remove_mean_value_state_machine:filtro_pa|state
+Name state.actualizar_salida state.actualizar_indice state.actualizar_acumulador state.save_data state.fetch_old_data state.register_data state.idle state.clean 
+state.clean 0 0 0 0 0 0 0 0 
+state.idle 0 0 0 0 0 0 1 1 
+state.register_data 0 0 0 0 0 1 0 1 
+state.fetch_old_data 0 0 0 0 1 0 0 1 
+state.save_data 0 0 0 1 0 0 0 1 
+state.actualizar_acumulador 0 0 1 0 0 0 0 1 
+state.actualizar_indice 0 1 0 0 0 0 0 1 
+state.actualizar_salida 1 0 0 0 0 0 0 1 
+
+State Machine - |DE10_LITE|lockin_wrapper:lockin_2|calculo_resultados:resultados_inst|state
+Name state.multiply state.register state.notify state.idle state.sum 
+state.idle 0 0 0 0 0 
+state.notify 0 0 1 1 0 
+state.register 0 1 0 1 0 
+state.multiply 1 0 0 1 0 
+state.sum 0 0 0 1 1 
 
 State Machine - |DE10_LITE|lockin_wrapper:lockin_2|lockin_state_machine:lockin_inst|state
 Name state.update_index state.acum_sum state.acum_substract state.save_product state.calc_product state.acommodate_ref state.fetch_ref state.fetch_old_sample state.idle state.clean 
@@ -360,6 +387,25 @@ state.acum_substract 0 0 1 0 0 0 0 0 0 1
 state.acum_sum 0 1 0 0 0 0 0 0 0 1 
 state.update_index 1 0 0 0 0 0 0 0 0 1 
 
+State Machine - |DE10_LITE|lockin_wrapper:lockin_2|remove_mean_value_state_machine:filtro_pa|state
+Name state.actualizar_salida state.actualizar_indice state.actualizar_acumulador state.save_data state.fetch_old_data state.register_data state.idle state.clean 
+state.clean 0 0 0 0 0 0 0 0 
+state.idle 0 0 0 0 0 0 1 1 
+state.register_data 0 0 0 0 0 1 0 1 
+state.fetch_old_data 0 0 0 0 1 0 0 1 
+state.save_data 0 0 0 1 0 0 0 1 
+state.actualizar_acumulador 0 0 1 0 0 0 0 1 
+state.actualizar_indice 0 1 0 0 0 0 0 1 
+state.actualizar_salida 1 0 0 0 0 0 0 1 
+
+State Machine - |DE10_LITE|lockin_wrapper:lockin_1|calculo_resultados:resultados_inst|state
+Name state.multiply state.register state.notify state.idle state.sum 
+state.idle 0 0 0 0 0 
+state.notify 0 0 1 1 0 
+state.register 0 1 0 1 0 
+state.multiply 1 0 0 1 0 
+state.sum 0 0 0 1 1 
+
 State Machine - |DE10_LITE|lockin_wrapper:lockin_1|lockin_state_machine:lockin_inst|state
 Name state.update_index state.acum_sum state.acum_substract state.save_product state.calc_product state.acommodate_ref state.fetch_ref state.fetch_old_sample state.idle state.clean 
 state.clean 0 0 0 0 0 0 0 0 0 0 
@@ -372,6 +418,17 @@ state.save_product 0 0 0 1 0 0 0 0 0 1
 state.acum_substract 0 0 1 0 0 0 0 0 0 1 
 state.acum_sum 0 1 0 0 0 0 0 0 0 1 
 state.update_index 1 0 0 0 0 0 0 0 0 1 
+
+State Machine - |DE10_LITE|lockin_wrapper:lockin_1|remove_mean_value_state_machine:filtro_pa|state
+Name state.actualizar_salida state.actualizar_indice state.actualizar_acumulador state.save_data state.fetch_old_data state.register_data state.idle state.clean 
+state.clean 0 0 0 0 0 0 0 0 
+state.idle 0 0 0 0 0 0 1 1 
+state.register_data 0 0 0 0 0 1 0 1 
+state.fetch_old_data 0 0 0 0 1 0 0 1 
+state.save_data 0 0 0 1 0 0 0 1 
+state.actualizar_acumulador 0 0 1 0 0 0 0 1 
+state.actualizar_indice 0 1 0 0 0 0 0 1 
+state.actualizar_salida 1 0 0 0 0 0 0 1 
 
 State Machine - |DE10_LITE|parallel_sum:sumador|state_sum
 Name state_sum.SUM_NOTIFY state_sum.SUM_CVT_SUMOUT state_sum.SUM_SUMOUT state_sum.SUM_SUM1 state_sum.SUM_CVT_S32 state_sum.SUM_CVT_S24 state_sum.SUM_WAIT_EN 

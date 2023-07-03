@@ -1,0 +1,562 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/simulation/modelsim
+Pads1299
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 w1687887969
+R0
+Z4 8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd
+Z5 FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd
+l0
+L12
+V4P`n^[eU:a6W3C<:Y[5B30
+!s100 Jk9TR5HPOL[>1N08ImFhG2
+Z6 OV;C;10.5b;63
+31
+Z7 !s110 1688236427
+!i10b 1
+Z8 !s108 1688236426.000000
+Z9 !s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd|
+Z10 !s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/ads1299.vhd|
+!i113 1
+Z11 o-93 -work work
+Z12 tExplicit 1 CvgOpt 0
+Bbody
+Z13 DPx4 work 7 ads1299 0 22 4P`n^[eU:a6W3C<:Y[5B30
+R1
+R2
+l0
+L76
+VZQ9k9@i9NLeNg9K6DdTff2
+!s100 U2GW`:EIm>A=[OScQO34l1
+R6
+31
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+vBCD_display
+Z14 !s110 1688236419
+!i10b 1
+!s100 hTRz88LbnX0kjLo`i8Ml51
+I^jJ@B^?kDI40R4VEzZf6a2
+Z15 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1636145892
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v
+L0 2
+Z16 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z17 !s108 1688236419.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/BCD_display.v|
+!i113 1
+Z18 o-vlog01compat -work work
+Z19 !s92 -vlog01compat -work work {+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores}
+Z20 tCvgOpt 0
+n@b@c@d_display
+Ebpp
+Z21 w1686940094
+Z22 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z23 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z24 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R1
+R2
+R0
+Z25 8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd
+Z26 FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd
+l0
+L37
+VG740nL_6W5YL8a^H`RNnY1
+!s100 z]dg]cgbhh3DMS0ORFO<C1
+R6
+31
+Z27 !s110 1688236425
+!i10b 1
+Z28 !s108 1688236425.000000
+Z29 !s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd|
+Z30 !s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/utilities.vhd|
+!i113 1
+R11
+R12
+Artl
+R22
+R23
+R24
+R1
+R2
+Z31 DEx4 work 3 bpp 0 22 G740nL_6W5YL8a^H`RNnY1
+l102
+L53
+V]^nzYnNNMW`7eHVZo?V[N3
+!s100 QgAo^EG]Uj:J:Y=mR_8ne3
+R6
+31
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R11
+R12
+vcalculo_resultados
+Z32 !s110 1688236421
+!i10b 1
+!s100 N1ziN0@S7jR71B]EYS=Bz3
+INMM[bc59mf9RQJK;a_`1a1
+R15
+R0
+w1688229836
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v
+L0 2
+R16
+r1
+!s85 0
+31
+Z33 !s108 1688236421.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/calculo_resultados.v|
+!i113 1
+R18
+R19
+R20
+vclock_divider
+Z34 !s110 1688236417
+!i10b 1
+!s100 NoRTfSDWZ3DZ^7>fB53DE3
+IFPhTg8F8?b7]5S0;S26S]2
+R15
+R0
+w1686330422
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v
+L0 2
+R16
+r1
+!s85 0
+31
+!s108 1688236417.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/clock_divider.v|
+!i113 1
+R18
+R19
+R20
+vdata_source
+Z35 !s110 1688236423
+!i10b 1
+!s100 =cL1KADij`=ASElB9C^S<3
+IihQBh3TCU16k^L`IcBnJ63
+R15
+R0
+w1686337489
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v
+L0 2
+R16
+r1
+!s85 0
+31
+Z36 !s108 1688236423.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/data_source.v|
+!i113 1
+R18
+R19
+R20
+Ede10_lite
+w1688190669
+Z37 DPx4 ieee 16 std_logic_signed 0 22 C<aanc0R`<LWPSe[JYRP^3
+Z38 DPx4 work 10 utilidades 0 22 aLYe_8nd>31R4D=T4eDbQ1
+R13
+R24
+R22
+R23
+R1
+R2
+R0
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd
+l0
+L22
+VkeTQPbRaZm83IaeLg4YJW0
+!s100 ekEIOd2hOkCB71ID>7Y>O1
+R6
+31
+R7
+!i10b 1
+!s108 1688236427.000000
+!s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd|
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/test_uart_m10.vhd|
+!i113 1
+R11
+R12
+vdescomponer_en_digitos
+R14
+!i10b 1
+!s100 KnX]]Lea=a5?TiJ_f]7HW0
+IF[aU_AolK7_5GZ?]7ISCm1
+R15
+R0
+w1686261929
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v
+L0 2
+R16
+r1
+!s85 0
+31
+Z39 !s108 1688236418.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/descomponer_en_digitos.v|
+!i113 1
+R18
+R19
+R20
+Efsm_txpc
+Z40 w1686940102
+R24
+R22
+R23
+R1
+R2
+R0
+Z41 8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd
+Z42 FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd
+l0
+L7
+V`]zl@=kzUBmH^XMncJFji1
+!s100 QHS9CMeO1K>1g;dYiCTZ]2
+R6
+31
+Z43 !s110 1688236426
+!i10b 1
+R8
+Z44 !s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd|
+Z45 !s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/fsm_txpc.vhd|
+!i113 1
+R11
+R12
+Artl
+Z46 DEx4 work 10 spi_master 0 22 W_WbQT;j19:J?loij>7Aj0
+R31
+R24
+R22
+R23
+R1
+R2
+DEx4 work 8 fsm_txpc 0 22 `]zl@=kzUBmH^XMncJFji1
+l69
+L25
+VXYLjjoJ0jCRhjem30NbMi1
+!s100 6YAaTkn7dN6?@4BL<k]][1
+R6
+31
+R43
+!i10b 1
+R8
+R44
+R45
+!i113 1
+R11
+R12
+vgenerador_estimulo
+R32
+!i10b 1
+!s100 ZT_Ih3^GX[`Nnna83<oUA3
+I:o><]b=3^@fIVh@DMQzd@0
+R15
+R0
+w1686858638
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v
+L0 2
+R16
+r1
+!s85 0
+31
+R33
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/generador_estimulo.v|
+!i113 1
+R18
+R19
+R20
+vlockin_state_machine
+R35
+!i10b 1
+!s100 j@TfTCgLG9:CG2Z@mCOkL2
+IH^ki^D5B=;;=[AU5F9Yc62
+R15
+R0
+w1688229934
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v
+L0 2
+R16
+r1
+!s85 0
+31
+R36
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_state_machine.v|
+!i113 1
+R18
+R19
+R20
+vlockin_wrapper
+Z47 !s110 1688236420
+!i10b 1
+!s100 4z0MHJdT1<_j@^7R@_oNK1
+I`e:?`RdB=1aE9lD<Xhz3i0
+R15
+R0
+w1688162286
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v
+L0 2
+R16
+r1
+!s85 0
+31
+R17
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/lockin_wrapper.v|
+!i113 1
+R18
+R19
+R20
+Emaster_pll
+Z48 w1668540388
+R1
+R2
+R0
+Z49 8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd
+Z50 FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd
+l0
+L43
+VC]aCSNag]XCToFHh`kIlY0
+!s100 LG8BgYECE_d<`lVco6Mk@0
+R6
+31
+R27
+!i10b 1
+Z51 !s108 1688236424.000000
+Z52 !s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd|
+Z53 !s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/master_pll.vhd|
+!i113 1
+R11
+R12
+Asyn
+R1
+R2
+DEx4 work 10 master_pll 0 22 C]aCSNag]XCToFHh`kIlY0
+l126
+L52
+V73Yihh]9[_SBE^O7BIAlF2
+!s100 TTBQGF:jBX:?HR0XcCf7D3
+R6
+31
+R27
+!i10b 1
+R51
+R52
+R53
+!i113 1
+R11
+R12
+vmaster_pll_altpll
+!s110 1688236422
+!i10b 1
+!s100 jQ@B@O0lM4`14oI0[?niP3
+IM5NeJ:WG671@3FVh_od4V3
+R15
+R0
+w1688063359
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v
+L0 29
+R16
+r1
+!s85 0
+31
+R33
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db/master_pll_altpll.v|
+!i113 1
+R18
+!s92 -vlog01compat -work work {+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/db}
+R20
+vremove_mean_value_state_machine
+R34
+!i10b 1
+!s100 bgkFo<C]GY01TTO0Dg1E43
+I:RWXo>c^E9BR^F`T39H8N2
+R15
+R0
+w1688232712
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v
+L0 2
+R16
+r1
+!s85 0
+31
+!s108 1688236416.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/remove_mean_value_state_machine.v|
+!i113 1
+R18
+R19
+R20
+vsegment7
+!s110 1688236418
+!i10b 1
+!s100 ]c`hm7Mo_9fToWZRUd^U62
+ISN4bKKJ9QagF^9be24L6=3
+R15
+R0
+w1618934310
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v
+L0 2
+R16
+r1
+!s85 0
+31
+R39
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/segment7.v|
+!i113 1
+R18
+R19
+R20
+Espi_master
+Z54 w1316460792
+R22
+R23
+R24
+R1
+R2
+R0
+Z55 8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd
+Z56 FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd
+l0
+L173
+VW_WbQT;j19:J?loij>7Aj0
+!s100 mQe]VOEBH;Oi4FLk@m_XM1
+R6
+31
+Z57 !s110 1688236424
+!i10b 1
+R51
+Z58 !s90 -reportprogress|300|-93|-work|work|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd|
+Z59 !s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/spi_master.vhd|
+!i113 1
+R11
+R12
+Artl
+R22
+R23
+R24
+R1
+R2
+R46
+l282
+L215
+VbZA8M[`T<g[mM?H23@a;h0
+!s100 E>L4O^I;kDJiH@V_nD2b31
+R6
+31
+R57
+!i10b 1
+R51
+R58
+R59
+!i113 1
+R11
+R12
+vsqrt
+R47
+!i10b 1
+!s100 AS9I:K:>CL>;iBUPMlIA>2
+I^OISz<O?@LO>EL`KDZ2Wm0
+R15
+R0
+w1686853985
+8G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v
+FG:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v
+L0 39
+R16
+r1
+!s85 0
+31
+!s108 1688236420.000000
+!s107 G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores|G:/Mi unidad/00-Doctorado/09-SSVEP_FPGA/test_uart_m10_v4/cores/sqrt.v|
+!i113 1
+R18
+R19
+R20
+Putilidades
+R22
+R37
+R24
+R1
+R2
+R21
+R0
+R25
+R26
+l0
+L16
+VaLYe_8nd>31R4D=T4eDbQ1
+!s100 kc3JHYVQm>FOdH`j>ZEok3
+R6
+31
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R11
+R12
+Bbody
+R38
+R22
+R37
+R24
+R1
+R2
+l0
+L19
+V4ddn8YkGZGFXa8Ej@R[MJ1
+!s100 =21Eim[3;Rln6<CYBIYCk0
+R6
+31
+R27
+!i10b 1
+R28
+R29
+R30
+!i113 1
+R11
+R12
